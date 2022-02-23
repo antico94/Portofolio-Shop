@@ -1,12 +1,12 @@
-﻿namespace MyShop.Models.Products.Categories;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using MyShop.Models.Products.Categories.Subcategories;
+
+namespace MyShop.Models.Products.Categories;
 
 public class Category
 {
-    public CategoryEnum CategoryName { get; set; }
-    public List<Enum> Subcategories { get; set; }
-
-    public Category(string name)
-    {
-        
-    }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int CategoryId { get; set; }
+    public string CategoryName { get; set; }
+    public List<Subcategory> Subcategories { get; set; }
 }

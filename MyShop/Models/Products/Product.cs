@@ -1,10 +1,12 @@
-﻿using System.Net.Mime;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Net.Mime;
 using MyShop.Models.Products.Categories;
 
 namespace MyShop.Models.Products;
 
 public class Product
 {
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
     public Brand Brand { get; set; }
     public string Title { get; set; }

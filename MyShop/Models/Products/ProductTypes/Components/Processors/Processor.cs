@@ -10,16 +10,24 @@ public class Processor : Product
     public Processor(string socket, int cores)
     {
         ProcessorFamily = Brand.ToString();
-        if (_validSockets.All(i => i.ToLower() != socket.ToLower()))
+        if (_validSockets.All(i => String.Equals(i, socket, StringComparison.CurrentCultureIgnoreCase)))
+        {
+            Socket = socket;
+        }
+        else
         {
             throw new ArgumentException("Socket does not exist.");
         }
-        Socket = socket;
 
-        if (cores%2!=0)
+
+        if (cores%2==0)
+        {
+            Cores = cores;
+        }
+        else
         {
             throw new ArgumentException("Cores can only be even.");
+
         }
-        Cores = cores;
     }
 }

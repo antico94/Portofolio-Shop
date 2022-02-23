@@ -18,7 +18,7 @@ public class Monitor : VisualDisplay
     {
         IsGaming = isGaming;
         RefreshRate = refreshRate;
-        if (_validPanels.Any(i=>i.ToLower() == panelType.ToLower()))
+        if (_validPanels.Any(i=>String.Equals(i, panelType, StringComparison.CurrentCultureIgnoreCase)))
         {
             PanelType = panelType;
         }

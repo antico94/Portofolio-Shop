@@ -9,7 +9,7 @@ public class Tv : VisualDisplay
     public Tv(bool isSmart, string imageQuality)
     {
         IsSmart = isSmart;
-        if (_validImageQuality.Any(i=>i.ToLower() == imageQuality.ToLower()))
+        if (_validImageQuality.Any(i=>String.Equals(i, imageQuality, StringComparison.CurrentCultureIgnoreCase)))
         {
             ImageQuality = imageQuality;
         }

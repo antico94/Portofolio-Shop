@@ -1,6 +1,6 @@
 ﻿namespace MyShop.Models.Products.ProductTypes.Components.Rams;
 
-public class Ram
+public class Ram : Product
 {
     private readonly List<string> _validMemoryType = new() {"DDR", "DDR2", "DDR3", "DDR4", "DDR5"};
     public int Frequency { get; set; }

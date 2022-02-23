@@ -6,5 +6,6 @@ public enum CategoryEnum
     PcAndComponents,
     PhotoAndVideo,
     TvAndMonitors,
-    Gaming
+    Gaming,
+    Peripherals
 }

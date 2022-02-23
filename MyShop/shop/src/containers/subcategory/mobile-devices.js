@@ -5,26 +5,26 @@ import Watches from "../../assets/images/mobile-devices/smart-watches.png"
 import Tablets from "../../assets/images/mobile-devices/tablets.png"
 
 const devices = [
-  {
-    name: "Smartphones",
-    image: Smartphones
-  },
-      {
-    name: "Tablets",
-    image: Tablets
-  },
-          {
-    name: "Laptops",
-    image: Laptops
-  },
-          {
-    name: "Smart Watches",
-    image: Watches
-  },
-          {
-    name: "Gaming Devices",
-    image: HandheldDevice
-  }
+    {
+        name: "Smartphones",
+        image: Smartphones
+    },
+    {
+        name: "Tablets",
+        image: Tablets
+    },
+    {
+        name: "Laptops",
+        image: Laptops
+    },
+    {
+        name: "Smart Watches",
+        image: Watches
+    },
+    {
+        name: "Gaming Devices",
+        image: HandheldDevice
+    }
 ]
 
 export default devices

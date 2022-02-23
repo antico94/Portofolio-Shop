@@ -2,11 +2,9 @@
 
 public enum GamingEnum
 {
-    Peripherals,
     Games,
     Chairs,
     Laptops,
     Desktops,
     Monitors
-    
 }
