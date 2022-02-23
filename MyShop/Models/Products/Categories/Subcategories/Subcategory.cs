@@ -8,4 +8,5 @@ public class Subcategory
     public int SubcategoryId { get; set; }
     public string SubcategoryName { get; set; }
     public List<string> Criteriums { get; set; }
+    public byte[] SubcategoryImage { get; set; }
 }
