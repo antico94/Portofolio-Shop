@@ -140,7 +140,7 @@ body.light-mode .video-bg:before {
 
 .app {
     background-color: var(--theme-bg-color);
-    min-width: 1920px;
+    min-width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -372,7 +372,7 @@ body.light-mode .video-bg:before {
     }
 }
 
-.side-wrapper + .side-wrapper {
+.side-wrapper {
     margin-top: 20px;
 }
 
@@ -476,6 +476,7 @@ body.light-mode .video-bg:before {
 }
 
 .content-wrapper-header {
+            pointer-events: none;
     display: flex;
     align-items: center;
     width: 100%;

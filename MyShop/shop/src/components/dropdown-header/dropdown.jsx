@@ -17,7 +17,7 @@ const Dropdown = () => {
                              setSelected(option);
                            }}
                 >
-                  <input className={css.dropdownCheckbox} type="checkbox"/>
+                  {/*<input className={css.dropdownCheckbox} type="checkbox"/>*/}
                   <a href="#" onClick={event => event.stopPropagation()}>
                     {option}
                   </a>
