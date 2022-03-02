@@ -2,11 +2,21 @@ import React from 'react';
 import $ from 'jquery';
 
 const FirstHeader = () => {
+  // Search bar effect
   $('.search-bar input').focus(function() {
     $('.header').addClass('wide');
   }).blur(function() {
     $('.header').removeClass('wide');
   });
+
+  // Selection on click
+  $(function() {
+    $('.menu-link').click(function() {
+      $('.menu-link').removeClass('is-active');
+      $(this).addClass('is-active');
+    });
+  });
+
   return (
       <div className="header">
         <div className="menu-circle"/>
