@@ -34,10 +34,11 @@ const TestComp = ({criteria, Key}) => {
     }
   };
 
-  return (<div className="side-wrapper-glass"
-               onClick={onClickHandler}
-               onMouseOut={onMouseLeaveHandler}>
-    <div className="side-title-glass">{criteria.name}:
+  return (<div className="side-wrapper-glass">
+    <div className="side-title-glass"
+         onClick={onClickHandler}
+         onMouseOut={onMouseLeaveHandler}
+    >{criteria.name}:
       <span className="glass-selection-span">{selection.length !== 0
           ? selection.length === 1 ? selection[0] : selection[0] + '...'
           : 'All'}</span>

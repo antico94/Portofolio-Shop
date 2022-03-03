@@ -1,0 +1,144 @@
+.app-card .app-card-lower {
+    display: flex;
+    height: 40px;
+    flex-direction: row;
+}
+
+.app-card .app-card-lower span {
+    margin-top: 15px;
+    word-wrap: break-word;
+    display: inline-block;
+    width: 200px;
+    min-height: 2em;
+    word-break: break-all;
+    /*font-size: 18px;*/
+    font-size: 1rem;
+}
+
+.content-button {
+    background-color: #3a6df0;
+    border: none;
+    padding: 8px 26px;
+    color: #fff;
+    border-radius: 20px;
+    margin-top: 16px;
+    cursor: pointer;
+    transition: 0.1s;
+    white-space: nowrap;
+}
+
+.app-card-buttons .content-button {
+    position: relative;
+    left: 0%;
+}
+
+.content-button:not(.open):hover {
+    background: #1e59f1;
+}
+
+.status-button {
+    font-size: 15px;
+    margin-top: 0;
+    padding: 6px 24px;
+}
+
+@media screen and (max-width: 390px) {
+    .status-button {
+        padding: 6px 14px;
+    }
+}
+
+.status-button.open {
+    background: none;
+    color: var(--button-inactive);
+    border: 1px solid var(--button-inactive);
+}
+
+.status-button:not(.open):hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+.app-card {
+    display: flex;
+    flex-direction: column;
+    width: calc(23% + 3px);
+    /*height: calc(50%);*/
+    font-size: 16px;
+    background-color: var(--content-bg);
+    border-radius: 14px;
+    border: 1px solid var(--theme-bg-color);
+    cursor: pointer;
+    transition: 0.3s ease;
+    position: relative;
+    left: -20px;
+    padding: 20px;
+    margin: 20px 0 0 20px;
+}
+
+
+.app-card:hover {
+    transform: scale(1.02);
+    background-color: var(--theme-bg-color);
+}
+
+.app-card svg {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: visible;
+    border-radius: 6px;
+    left: 90%;
+    height: 1px;
+    flex-shrink: 0;
+    transform: scale(1);
+    z-index: 9999;
+}
+
+.app-card + .app-card {
+    margin-left: 20px;
+}
+
+.app-card span {
+    display: flex;
+    align-items: center;
+}
+
+.app-card__subtext {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6em;
+    margin-top: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+.app-card-buttons {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-top: 16px;
+}
+
+@media screen and (max-width: 1110px) {
+    .app-card {
+        width: calc(50% - 20px);
+    }
+
+    .app-card:last-child {
+        margin-top: 20px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 565px) {
+    .app-card {
+        width: calc(100% - 20px);
+        margin-top: 20px;
+    }
+
+    .app-card + .app-card {
+        margin-left: 0;
+    }
+}

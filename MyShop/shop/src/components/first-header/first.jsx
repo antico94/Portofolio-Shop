@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import $ from 'jquery';
 
 const FirstHeader = () => {
-  // Search bar effect
-  $('.search-bar input').focus(function() {
-    $('.header').addClass('wide');
-  }).blur(function() {
-    $('.header').removeClass('wide');
-  });
+
+  useEffect(()=>{
+      // Search bar effect
+      $('.search-bar input').focus(function() {
+        $('.header').addClass('wide');
+      }).blur(function() {
+        $('.header').removeClass('wide');
+      });
+  },[])
+
 
   // Selection on click
   $(function() {

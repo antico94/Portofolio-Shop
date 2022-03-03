@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './home.css';
 import {
   Content,
@@ -8,8 +8,11 @@ import {
   SecondHeader,
   SideMenu,
 } from '../../components';
+import $ from 'jquery';
 
 const Home = () => {
+
+
       const [displayList, setDisplayList] = useState([]);
       const [showsProduct, setShowsProduct] = useState(true);
 
