@@ -1,4 +1,5 @@
 import React from 'react';
+import PromoImg from "./../../assets/images/promo/glass.png"
 
 const Promo = () => {
   return (
@@ -34,7 +35,8 @@ const Promo = () => {
           <button className="content-button">Start free trial</button>
         </div>
         <img className="content-wrapper-img"
-             src="https://assets.codepen.io/3364143/glass.png"
+             src={PromoImg}
+             loading="lazy"
              alt=""/>
       </div>);
 };

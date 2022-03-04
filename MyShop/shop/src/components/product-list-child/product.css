@@ -73,7 +73,7 @@
     position: relative;
     left: -20px;
     padding: 20px;
-    margin: 20px 0 0 20px;
+    margin: 20px 0px 0 20px;
 }
 
 
@@ -86,14 +86,21 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    /*width: 100%;*/
     overflow: visible;
-    border-radius: 6px;
     left: 90%;
-    height: 1px;
     flex-shrink: 0;
     transform: scale(1);
     z-index: 9999;
+}
+
+.app-card span img{
+    margin: 0;
+    padding: 0;
+}
+
+.app-card svg .active {
+    fill: #1e59f1;
 }
 
 .app-card + .app-card {
