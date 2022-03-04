@@ -24,11 +24,12 @@ ASP NET Core, C#, Entity Framework, Microsoft SQL Server, MVC Pattern, Swagger v
 - Glassmorphism UI Theme
 - Searchbar
 - Notifications
-- Profile
-- Checkout
+- Profile (Work in progress)
+- Checkout (Work in progress)
 - Dark and Light mode
-- Responsive
+- Responsive (To some extent)
 - Scalable
+- Many more to come
 
 ##Preview
 
