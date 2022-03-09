@@ -1,1 +1,1 @@
-export {default as Home} from "./home/jome"
+export {default as Home} from "./home/layout"

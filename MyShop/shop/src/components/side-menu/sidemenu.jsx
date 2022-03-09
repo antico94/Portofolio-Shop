@@ -3,7 +3,7 @@ import {CategoriesTab, AppsTab, BuildTab, BrandsTab} from './parts';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 
-const SideMenu = ({setDisplayList, setShowsProduct}) => {
+const SideMenu = () => {
 
 
 
@@ -11,7 +11,7 @@ const SideMenu = ({setDisplayList, setShowsProduct}) => {
   return (
       <div className="left-side">
         <AppsTab/>
-        <CategoriesTab setDisplayList={setDisplayList} setShowsProduct={setShowsProduct}/>
+        <CategoriesTab/>
         <BuildTab/>
         <BrandsTab/>
       </div>

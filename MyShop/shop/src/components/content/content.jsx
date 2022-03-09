@@ -3,6 +3,12 @@ import ProductsListChild from '../product-list-child/Products-list-child';
 import Subcategory from '../subcategory/subcategory';
 
 const Content = ({displayList, showsProduct}) => {
+  if (!displayList){
+    return (      <div className="content-section">
+        <div className="apps-card">
+        </div>
+    </div>)
+  }
 
   return (
       <div className="content-section">
