@@ -1,8 +1,7 @@
 import React from 'react';
 
-const PopularBrandsTab = () => {
-  return (
-      <div className="side-wrapper">
+const PopularBrandsTab = React.memo(() => {
+  return (<div className="side-wrapper">
         <div className="side-title">Popular Brands</div>
         <div className="side-menu">
           <a href="#">
@@ -49,8 +48,7 @@ const PopularBrandsTab = () => {
             LG
           </a>
         </div>
-      </div>
-  );
-};
+      </div>);
+});
 
 export default PopularBrandsTab;

@@ -34,21 +34,21 @@ function App() {
                   <Promo/>
                   <Routes>
                     {/*<Route path="/" element={<Home/>}/>*/}
-                    <Route path="/mobile-devices/categories"
+                    <Route path="/categories/mobile-devices"
                            element={<Content showsProduct={false}
                                              displayList={mobileDevices}/>}/>
-                    <Route path="/pc-and-components/categories"
+                    <Route path="/categories/pc-and-components"
                            element={<Content showsProduct={false}
                                              displayList={pcAndComponents}/>}/>}/>
-                    <Route path="/foto-and-video/categories"
+                    <Route path="/categories/foto-and-video"
                            element={<Content showsProduct={false}
                                              displayList={mobileDevices}/>}/>}/>
-                    <Route path="/tv-and-monitors/categories"
+                    <Route path="/categories/tv-and-monitors"
                            element={<Content showsProduct={false}
                                              displayList={tvAndMonitors}/>}/>}/>
-                    <Route path="/gaming/categories" element={<Content showsProduct={false}
+                    <Route path="/categories/gaming" element={<Content showsProduct={false}
                                              displayList={gaming}/>}/>}/>
-                    <Route path="/peripherals/categories" element={<Content showsProduct={false}
+                    <Route path="/categories/peripherals" element={<Content showsProduct={false}
                                              displayList={peripherals}/>}/>}/>
 
                   </Routes>

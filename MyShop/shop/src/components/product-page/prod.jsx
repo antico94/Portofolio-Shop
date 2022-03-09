@@ -3,13 +3,9 @@ import "./product.css"
 import $ from "jquery"
 import {Home} from '../../pages';
 
-const Product = () => {
-  useEffect(()=>{
-    console.log("dadada")
-  })
+const Product = (product) => {
 
-  return (
-      <Home/>
+  return (<></>
   );
 };
 

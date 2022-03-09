@@ -1,7 +1,7 @@
 import React from 'react';
 
-const BuildTab = () => {
-  return (
+const BuildTab = React.memo(()=>{
+    return (
         <div className="side-wrapper">
           <div className="side-title">Services</div>
           <div className="side-menu">
@@ -15,6 +15,8 @@ const BuildTab = () => {
           </div>
         </div>
   );
-};
+})
+
+
 
 export default BuildTab;

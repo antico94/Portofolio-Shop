@@ -1,13 +1,7 @@
-import React, {useState} from 'react';
-import {CategoriesTab, AppsTab, BuildTab, BrandsTab} from './parts';
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import React from 'react';
+import {AppsTab, BrandsTab, BuildTab, CategoriesTab} from './parts';
 
-
-const SideMenu = () => {
-
-
-
-
+const SideMenu = React.memo(() => {
   return (
       <div className="left-side">
         <AppsTab/>
@@ -16,6 +10,6 @@ const SideMenu = () => {
         <BrandsTab/>
       </div>
   );
-};
+});
 
 export default SideMenu;

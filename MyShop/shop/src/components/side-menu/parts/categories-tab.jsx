@@ -1,17 +1,11 @@
 import React from 'react';
-import devices from '../../../containers/subcategory/mobile-devices';
-import pcAndComponents from '../../../containers/subcategory/pc-and-components';
-import DisplayDevices from '../../../containers/subcategory/tv-and-monitors';
-import GamingCategory from '../../../containers/subcategory/gaming';
-import PeripheralsCategory from '../../../containers/subcategory/peripherals';
 
-const CategoriesTab = ({setDisplayList, setShowsProduct}) => {
-
-  return (
+const CategoriesTab = React.memo(({setDisplayList, setShowsProduct})=>{
+    return (
         <div className="side-wrapper">
           <div className="side-title">Categories</div>
           <div className="side-menu">
-                          <a href="http://localhost:3000/mobile-devices/categories" id="mobile-devices-category">
+                          <a href="/categories/mobile-devices" id="mobile-devices-category">
               <svg viewBox="0 0 488.455 488.455" fill="currentColor">
                 <path
                     d="M287.396 216.317c23.845 23.845 23.845 62.505 0 86.35s-62.505 23.845-86.35 0-23.845-62.505 0-86.35 62.505-23.845 86.35 0"/>
@@ -21,7 +15,7 @@ const CategoriesTab = ({setDisplayList, setShowsProduct}) => {
               Mobile Devices
             </a>
 
-            <a href="http://localhost:3000/pc-and-components/categories">
+            <a href="/categories/pc-and-components">
               <svg viewBox="0 0 512 512" fill="currentColor">
                 <circle cx="295.099" cy="327.254" r="110.96"
                         transform="rotate(-45 295.062 327.332)"/>
@@ -30,21 +24,21 @@ const CategoriesTab = ({setDisplayList, setShowsProduct}) => {
               </svg>
               PC & Components
             </a>
-            <a href="http://localhost:3000/photos-and-videos/products">
+            <a href="/categories/photos-and-videos/products">
               <svg viewBox="0 0 58 58" fill="currentColor">
                 <path
                     d="M57 6H1a1 1 0 00-1 1v44a1 1 0 001 1h56a1 1 0 001-1V7a1 1 0 00-1-1zM10 50H2v-9h8v9zm0-11H2v-9h8v9zm0-11H2v-9h8v9zm0-11H2V8h8v9zm26.537 12.844l-11 7a1.007 1.007 0 01-1.018.033A1.001 1.001 0 0124 36V22a1.001 1.001 0 011.538-.844l11 7a1.003 1.003 0 01-.001 1.688zM56 50h-8v-9h8v9zm0-11h-8v-9h8v9zm0-11h-8v-9h8v9zm0-11h-8V8h8v9z"/>
               </svg>
               Photo & Video
             </a>
-            <a href="http://localhost:3000/tv-and-monitors/categories">
+            <a href="/categories/tv-and-monitors">
               <svg viewBox="0 0 512 512" fill="currentColor">
                 <path
                     d="M499.377 46.402c-8.014-8.006-18.662-12.485-29.985-12.613a41.13 41.13 0 00-.496-.003c-11.142 0-21.698 4.229-29.771 11.945L198.872 275.458c25.716 6.555 47.683 23.057 62.044 47.196a113.544 113.544 0 0110.453 23.179L500.06 106.661C507.759 98.604 512 88.031 512 76.89c0-11.507-4.478-22.33-12.623-30.488zM176.588 302.344a86.035 86.035 0 00-3.626-.076c-20.273 0-40.381 7.05-56.784 18.851-19.772 14.225-27.656 34.656-42.174 53.27C55.8 397.728 27.795 409.14 0 416.923c16.187 42.781 76.32 60.297 115.752 61.24 1.416.034 2.839.051 4.273.051 44.646 0 97.233-16.594 118.755-60.522 23.628-48.224-5.496-112.975-62.192-115.348z"/>
               </svg>
               TV & Monitors
             </a>
-            <a href="http://localhost:3000/gaming/categories">
+            <a href="/categories/gaming">
 
               <svg viewBox="0 0 512 512" fill="currentColor">
                 <path
@@ -54,7 +48,7 @@ const CategoriesTab = ({setDisplayList, setShowsProduct}) => {
               </svg>
               Gaming
             </a>
-            <a href="http://localhost:3000/peripherals/categories">
+            <a href="/categories/peripherals">
               <svg viewBox="0 0 512 512" fill="currentColor">
                 <path
                     d="M0 331v112.295a14.996 14.996 0 007.559 13.023L106 512V391L0 331zM136 391v121l105-60V331zM271 331v121l105 60V391zM406 391v121l98.441-55.682A14.995 14.995 0 00512 443.296V331l-106 60zM391 241l-115.754 57.876L391 365.026l116.754-66.15zM262.709 1.583a15.006 15.006 0 00-13.418 0L140.246 57.876 256 124.026l115.754-66.151L262.709 1.583zM136 90v124.955l105 52.5V150zM121 241L4.246 298.876 121 365.026l115.754-66.15zM271 150v117.455l105-52.5V90z"/>
@@ -64,6 +58,6 @@ const CategoriesTab = ({setDisplayList, setShowsProduct}) => {
           </div>
         </div>
   );
-};
+})
 
 export default CategoriesTab;

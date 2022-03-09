@@ -1,15 +1,11 @@
 import React from 'react';
 
-const AppsTab = () => {
-    const TestFTP = () => {
-  };
-
-  return (
+const AppsTab = React.memo(()=>{
+    return (
         <div className="side-wrapper">
           <div className="side-title">Apps</div>
           <div className="side-menu">
-            <a href="#"
-               onClick={TestFTP}>
+            <a href="#">
               <svg viewBox="0 0 512 512">
                 <g xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                   <path
@@ -36,6 +32,10 @@ const AppsTab = () => {
           </div>
         </div>
   );
-};
+})
+
+
+
+
 
 export default AppsTab;

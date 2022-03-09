@@ -1,7 +1,7 @@
 import React from 'react';
-import PromoImg from "./../../assets/images/promo/glass.png"
+import PromoImg from './../../assets/images/promo/glass.png';
 
-const Promo = () => {
+const Promo = React.memo(() => {
   return (
       <div className="content-wrapper-header">
         <div className="content-wrapper-context">
@@ -39,6 +39,6 @@ const Promo = () => {
              loading="lazy"
              alt=""/>
       </div>);
-};
+});
 
 export default Promo;
