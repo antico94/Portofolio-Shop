@@ -3,7 +3,7 @@ import Monitor from "../../assets/images/tv-and-monitors/monitor.png"
 
 const devices = [
     {
-        name: "TV's",
+        name: "TV",
         image: TV
     },
     {

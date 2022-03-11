@@ -3,7 +3,7 @@ import $ from 'jquery';
 
 const Dark = () => {
   useEffect(() => {
-    document.body.classList.toggle('light-mode');
+    // document.body.classList.toggle('light-mode');
     const toggleButton = document.querySelector('.dark-light');
     toggleButton.addEventListener('click', () => {
       document.body.classList.toggle('light-mode');

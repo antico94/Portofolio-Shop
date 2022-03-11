@@ -14,10 +14,21 @@ import pcAndComponents from './containers/subcategory/pc-and-components';
 import tvAndMonitors from './containers/subcategory/tv-and-monitors';
 import gaming from './containers/subcategory/gaming';
 import peripherals from './containers/subcategory/peripherals';
+import {getCookieValue, isCookiePresent} from "./containers/utility/utility"
 
 function App() {
   const [displayList, setDisplayList] = useState([]);
   const [showsProduct, setShowsProduct] = useState(true);
+  const [promoClosed, setPromoClosed] = useState(()=>{
+    if (isCookiePresent("promoClosed")){
+      return Boolean(getCookieValue("promoClosed"))
+    }
+    return false;
+  })
+  const closePromo = () =>{
+    setPromoClosed(true)
+    document.cookie = "promoClosed=true"
+  }
 
   return (
       <Router>
@@ -31,7 +42,7 @@ function App() {
               <div className="main-container">
                 <SecondHeader/>
                 <div className="content-wrapper">
-                  <Promo/>
+                  {!promoClosed && <Promo closePromo={closePromo}/>}
                   <Routes>
                     {/*<Route path="/" element={<Home/>}/>*/}
                     <Route path="/categories/mobile-devices"

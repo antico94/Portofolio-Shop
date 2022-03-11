@@ -1,0 +1,11 @@
+#x-button-promo{
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    left: 96%;
+    top: 15%;
+}
+
+#x-button-promo:hover{
+    filter: invert(1);
+}
