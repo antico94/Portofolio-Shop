@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import {
   Content,
@@ -14,27 +14,54 @@ import pcAndComponents from './containers/subcategory/pc-and-components';
 import tvAndMonitors from './containers/subcategory/tv-and-monitors';
 import gaming from './containers/subcategory/gaming';
 import peripherals from './containers/subcategory/peripherals';
-import {getCookieValue, isCookiePresent} from "./containers/utility/utility"
+import {getCookieValue, isCookiePresent} from './containers/utility/utility';
 
 function App() {
-  const [displayList, setDisplayList] = useState([]);
-  const [showsProduct, setShowsProduct] = useState(true);
-  const [promoClosed, setPromoClosed] = useState(()=>{
-    if (isCookiePresent("promoClosed")){
-      return Boolean(getCookieValue("promoClosed"))
+
+  //Promo settings user preference
+  //region
+  const [promoClosed, setPromoClosed] = useState(() => {
+    if (isCookiePresent('promoClosed')) {
+      return Boolean(getCookieValue('promoClosed'));
     }
     return false;
-  })
-  const closePromo = () =>{
-    setPromoClosed(true)
-    document.cookie = "promoClosed=true"
-  }
+  });
+  const closePromo = () => {
+    setPromoClosed(true);
+    document.cookie = 'promoClosed=true';
+  };
+  //endregion
+
+  //Dark Mode user preference
+  //region
+  const [darkMode, setDarkMode] = useState(false);
+  useEffect(() => {
+    setDarkMode(JSON.parse(window.localStorage.getItem('darkMode')));
+  }, []);
+  useEffect(() => {
+    if (darkMode) {
+      localStorage.setItem('darkMode', 'true');
+      if (document.body.classList.contains('light-mode')) {
+        document.body.classList.remove('light-mode');
+      }
+    } else {
+      localStorage.setItem('darkMode', 'false');
+
+      if (!document.body.classList.contains('light-mode')) {
+        document.body.classList.add('light-mode');
+      }
+    }
+  }, [darkMode]);
+  const darkModeToggle = () => {
+    setDarkMode(!darkMode);
+  };
+  //endregion
 
   return (
       <Router>
         <div className="App">
 
-          <DarkModeToggle/>
+          <DarkModeToggle onClickHandler={darkModeToggle}/>
           <div className="app">
             <FirstHeader/>
             <div className="wrapper">
@@ -57,9 +84,11 @@ function App() {
                     <Route path="/categories/tv-and-monitors"
                            element={<Content showsProduct={false}
                                              displayList={tvAndMonitors}/>}/>}/>
-                    <Route path="/categories/gaming" element={<Content showsProduct={false}
+                    <Route path="/categories/gaming"
+                           element={<Content showsProduct={false}
                                              displayList={gaming}/>}/>}/>
-                    <Route path="/categories/peripherals" element={<Content showsProduct={false}
+                    <Route path="/categories/peripherals"
+                           element={<Content showsProduct={false}
                                              displayList={peripherals}/>}/>}/>
 
                   </Routes>
