@@ -11,21 +11,11 @@ const ProductsListChild = ({
   Id = 0,
 }) => {
   const [loved, setLoved] = useState(false);
-  const [isProductPage, setIsProductPage] = useState(false);
 
   const onLoveHandler = () => {
     setLoved(!loved);
   };
 
-  // const onProductClick = () => {
-  //     $(".app-card").remove()
-  //   setIsProductPage(true)
-  // }
-
-  // if (isProductPage){
-  //   return <Product/>
-  // }else
-  // {
 
 
 
@@ -57,7 +47,6 @@ const ProductsListChild = ({
       </div>
     </div>
   </div>);
-// }
 };
 
 export default ProductsListChild;

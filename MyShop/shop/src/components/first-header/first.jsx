@@ -28,7 +28,7 @@ const FirstHeader = React.memo(()=> {
           <a className="menu-link is-active" href="#">Products</a>
           <a className="menu-link notify" href="#">Today's Deals</a>
           <a className="menu-link" href="#">Customer Service</a>
-          <a className="menu-link notify" href="#">Gift Cards</a>
+          <a className="menu-link notify" href="/gift-cards">Gift Cards</a>
         </div>
         <div className="search-bar">
           <input type="text" placeholder="Search"/>

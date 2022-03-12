@@ -73,24 +73,29 @@ function App() {
                   <Routes>
                     {/*<Route path="/" element={<Home/>}/>*/}
                     <Route path="/categories/mobile-devices"
-                           element={<Content showsProduct={false}
-                                             displayList={mobileDevices}/>}/>
+                           element={<Content ContentType="Subcategory"
+                                             Items={mobileDevices}/>}/>
                     <Route path="/categories/pc-and-components"
-                           element={<Content showsProduct={false}
-                                             displayList={pcAndComponents}/>}/>}/>
+                           element={<Content ContentType="Subcategory"
+                                             Items={pcAndComponents}/>}/>}/>
                     <Route path="/categories/foto-and-video"
-                           element={<Content showsProduct={false}
-                                             displayList={mobileDevices}/>}/>}/>
+                           element={<Content ContentType="Subcategory"
+                                             Items={mobileDevices}/>}/>}/>
                     <Route path="/categories/tv-and-monitors"
-                           element={<Content showsProduct={false}
-                                             displayList={tvAndMonitors}/>}/>}/>
+                           element={<Content ContentType="Subcategory"
+                                             Items={tvAndMonitors}/>}/>}/>
                     <Route path="/categories/gaming"
-                           element={<Content showsProduct={false}
-                                             displayList={gaming}/>}/>}/>
+                           element={<Content ContentType="Subcategory"
+                                             Items={gaming}/>}/>}/>
                     <Route path="/categories/peripherals"
-                           element={<Content showsProduct={false}
-                                             displayList={peripherals}/>}/>}/>
-
+                           element={<Content ContentType="Subcategory"
+                                             Items={peripherals}/>}/>}/>
+                    <Route path="/categories/photos-and-videos/products"
+                           element={<Content ContentType="Product"
+                                             Items={peripherals}/>}/>}/>
+                    <Route path="/gift-cards"
+                           element={<Content ContentType="Gift-Card"
+                                             Items={peripherals}/>}/>}/>
                   </Routes>
                   <Content/>
                 </div>

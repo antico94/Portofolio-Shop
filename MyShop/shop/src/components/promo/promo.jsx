@@ -1,12 +1,12 @@
 import React from 'react';
 import PromoImg from './../../assets/images/promo/glass.png';
-import xButton from "./../../assets/images/promo/x.png"
-import "./promo.css"
+import xButton from './../../assets/images/promo/x.png';
+import './promo.css';
 
 const Promo = React.memo(({closePromo}) => {
-  const closeHandler = () =>{
-    closePromo()
-  }
+  const closeHandler = () => {
+    closePromo();
+  };
   return (<div className="content-wrapper-header">
     <div className="content-wrapper-context">
       <h3 className="img-content">
@@ -38,11 +38,11 @@ const Promo = React.memo(({closePromo}) => {
       </div>
       <button className="content-button">Start free trial</button>
     </div>
-        <img id="x-button-promo"
+    <img id="x-button-promo"
          src={xButton}
          loading="lazy"
          alt="close"
-        onClick={closeHandler}/>
+         onClick={closeHandler}/>
     <img className="content-wrapper-img"
          src={PromoImg}
          loading="lazy"

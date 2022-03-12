@@ -1,27 +1,35 @@
 import React from 'react';
 import ProductsListChild from '../product-list-child/Products-list-child';
 import Subcategory from '../subcategory/subcategory';
+import GiftCard from '../gift-card/gift-card';
 
-const Content = ({displayList, showsProduct}) => {
-  if (!displayList){
-    return (      <div className="content-section">
-        <div className="apps-card">
-        </div>
-    </div>)
-  }
+const Content = ({ContentType, Items}) => {
 
-  return (
+    return (
       <div className="content-section">
         <div className="apps-card">
-          {showsProduct && displayList.map(element => {
+          {ContentType === "Gift-Card" && [...Array(8).keys()].map(element => {
+            return (<GiftCard price={element}/>);
+          })}
+          {ContentType==="Product" && [...Array(100).keys()].map(element => {
             return (<ProductsListChild/>);
           })}
-          {!showsProduct && displayList.map(element => {
+          {ContentType==="Subcategory" && Items.map(element => {
             return (<Subcategory name={element.name}
                                  image={element.image}/>);
           })}
         </div>
       </div>);
+
+
+//   if (!displayList){
+//     return (      <div className="content-section">
+//         <div className="apps-card">
+//         </div>
+//     </div>)
+//   }
+//
+
 };
 
 export default Content;
