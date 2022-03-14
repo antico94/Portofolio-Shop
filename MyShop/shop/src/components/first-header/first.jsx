@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import $ from 'jquery';
 import ProfilePic from "./../../assets/images/profile/profile.png"
+import {Link} from 'react-router-dom';
 
 const FirstHeader = React.memo(()=> {
     useEffect(()=>{
@@ -25,10 +26,10 @@ const FirstHeader = React.memo(()=> {
       <div className="header">
         <div className="menu-circle"/>
         <div className="header-menu">
-          <a className="menu-link is-active" href="#">Products</a>
+          <Link className="menu-link is-active" to="/categories/photos-and-videos/products">Products</Link>
           <a className="menu-link notify" href="#">Today's Deals</a>
           <a className="menu-link" href="#">Customer Service</a>
-          <a className="menu-link notify" href="/gift-cards">Gift Cards</a>
+          <Link className="menu-link notify" to="/gift-cards">Gift Cards</Link>
         </div>
         <div className="search-bar">
           <input type="text" placeholder="Search"/>

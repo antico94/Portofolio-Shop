@@ -10,7 +10,7 @@ const GiftCard = ({price}) => {
       </span>
       <div className="app-card__subtext">{"Surprise your loved ones with this voucher of " + price + " Lei"}</div>
       <div className="app-card-lower">
-        <span>€ 1099.99</span>
+        <span>{price} Lei</span>
         <div className="app-card-buttons">
           <button className="content-button status-button">Add to Cart</button>
         </div>

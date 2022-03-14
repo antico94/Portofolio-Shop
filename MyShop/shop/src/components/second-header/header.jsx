@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import TestComp from '../test/test';
+import Dropdown from '../dropdown/dropdown';
 import $ from 'jquery';
 
 const Header = ({categories}) => {
@@ -9,8 +9,8 @@ const Header = ({categories}) => {
       <div className="main-header">
         <div className="header-menu">
           {[1, 2, 3].map((index) => {
-            {/*  return <TestComp Key={index} />*/}
-            return <TestComp Key={index}/>;
+            {/*  return <Dropdown Key={index} />*/}
+            return <Dropdown Key={index}/>;
           })}
         </div>
       </div>

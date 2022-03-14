@@ -1,0 +1,101 @@
+.giftCardPage {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg {
+    position: relative;
+}
+
+
+.headerText {
+    position: relative;
+    top: 0;
+}
+
+.headerTitle {
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.headerSubtitle {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.headerSubtext {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+
+.carousel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: visible;
+    justify-content: space-evenly;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.card {
+    border-radius: 70px;
+    transform: scale(0.7);
+    opacity: 0.9;
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.activeCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardDescription {
+    font-weight: 300;
+}
+
+.notActive {
+    position: relative;
+    margin-top: 45px;
+}
+
+.circlesContainer {
+    display: flex;
+    width: 500px;
+    height: 200px;
+    /*border: 1px solid red;*/
+    margin-left: 575px;
+    margin-top: 5px;
+    justify-content: center;
+}
+
+.circle {
+    margin: 5px;
+    position: relative;
+}
+
+.circle:hover {
+    transition: all .2s;
+    transform: scale(1.5);
+    filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(180deg);
+}
+
+.circle:active {
+    filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(180deg);
+    transform: scale(1.5);
+}
+

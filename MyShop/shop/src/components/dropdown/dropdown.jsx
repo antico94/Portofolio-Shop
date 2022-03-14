@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import './test.css';
+import './dropdown.css';
 import $ from 'jquery';
 
-const TestComp = ({criteria, Key}) => {
+const Dropdown = ({criteria, Key}) => {
   criteria = {
     name: 'Brands', options: ['Samsung', 'Apple', 'Sonny'],
   };
@@ -65,4 +65,4 @@ const TestComp = ({criteria, Key}) => {
       </div>);
 };
 
-export default TestComp;
+export default Dropdown;
