@@ -27,8 +27,8 @@ const FirstHeader = React.memo(()=> {
         <div className="menu-circle"/>
         <div className="header-menu">
           <Link className="menu-link is-active" to="/categories/photos-and-videos/products">Products</Link>
-          <a className="menu-link notify" href="#">Today's Deals</a>
-          <a className="menu-link" href="#">Customer Service</a>
+          <Link to="/deals" className="menu-link notify" href="#">Today's Deals</Link>
+          <Link to="/customer-service" className="menu-link" href="#">Customer Service</Link>
           <Link className="menu-link notify" to="/gift-cards">Gift Cards</Link>
         </div>
         <div className="search-bar">

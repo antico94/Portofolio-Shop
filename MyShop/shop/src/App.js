@@ -99,13 +99,18 @@ function App() {
                              element={<Content ContentType="Subcategory"
                                                Items={peripherals}/>}/>}/>
                       <Route path="/categories/photos-and-videos/products"
-                             element={<Content ContentType="Product"
+                             element={<Content ContentType="Products"
                                                Items={peripherals}/>}/>}/>
 
                       <Route path="/gift-cards"
                              element={<Content ContentType="Gift-Card"
                                                Items={peripherals}/>}/>}/>
-
+                      <Route path="/deals"
+                             element={<Content ContentType="Construction"
+                             />}/>}/>
+                      <Route path="/customer-service"
+                             element={<Content ContentType="Construction"
+                             />}/>}/>
                       <Route path="/"
                              element={Home}/>
 
