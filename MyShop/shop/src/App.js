@@ -17,6 +17,7 @@ import peripherals from './containers/subcategory/peripherals';
 import {getCookieValue, isCookiePresent} from './containers/utility/utility';
 import {Home} from './pages';
 import {AppContext} from './containers/app-context/app-context';
+import MyRoutes from './components/routes/routes';
 
 function App() {
 
@@ -78,43 +79,7 @@ function App() {
                   {showHeader && <SecondHeader/>}
                   <div className="content-wrapper">
                     {!promoClosed && <Promo closePromo={closePromo}/>}
-                    <Routes>
-
-                      <Route path="/categories/mobile-devices"
-                             element={<Content ContentType="Subcategory"
-                                               Items={mobileDevices}/>}/>
-                      <Route path="/categories/pc-and-components"
-                             element={<Content ContentType="Subcategory"
-                                               Items={pcAndComponents}/>}/>}/>
-                      <Route path="/categories/foto-and-video"
-                             element={<Content ContentType="Subcategory"
-                                               Items={mobileDevices}/>}/>}/>
-                      <Route path="/categories/tv-and-monitors"
-                             element={<Content ContentType="Subcategory"
-                                               Items={tvAndMonitors}/>}/>}/>
-                      <Route path="/categories/gaming"
-                             element={<Content ContentType="Subcategory"
-                                               Items={gaming}/>}/>}/>
-                      <Route path="/categories/peripherals"
-                             element={<Content ContentType="Subcategory"
-                                               Items={peripherals}/>}/>}/>
-                      <Route path="/categories/photos-and-videos/products"
-                             element={<Content ContentType="Products"
-                                               Items={peripherals}/>}/>}/>
-
-                      <Route path="/gift-cards"
-                             element={<Content ContentType="Gift-Card"
-                                               Items={peripherals}/>}/>}/>
-                      <Route path="/deals"
-                             element={<Content ContentType="Construction"
-                             />}/>}/>
-                      <Route path="/customer-service"
-                             element={<Content ContentType="Construction"
-                             />}/>}/>
-                      <Route path="/"
-                             element={Home}/>
-
-                    </Routes>
+                    <MyRoutes/>
                   </div>
                 </div>
               </div>
