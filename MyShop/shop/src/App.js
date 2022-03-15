@@ -15,6 +15,8 @@ import tvAndMonitors from './containers/subcategory/tv-and-monitors';
 import gaming from './containers/subcategory/gaming';
 import peripherals from './containers/subcategory/peripherals';
 import {getCookieValue, isCookiePresent} from './containers/utility/utility';
+import {Home} from './pages';
+import {AppContext} from './containers/app-context/app-context';
 
 function App() {
 
@@ -57,54 +59,67 @@ function App() {
   };
   //endregion
 
+  // Show/Hide the second header
+  //region
+  const [showHeader, setShowHeader] = useState(true);
+
+  //endregion
+
   return (
       <Router>
-        <div className="App">
+        <AppContext.Provider value={{showHeader, setShowHeader}}>
+          <div className="App">
+            <DarkModeToggle onClickHandler={darkModeToggle}/>
+            <div className="app">
+              <FirstHeader/>
+              <div className="wrapper">
+                <SideMenu/>
+                <div className="main-container">
+                  {showHeader && <SecondHeader/>}
+                  <div className="content-wrapper">
+                    {!promoClosed && <Promo closePromo={closePromo}/>}
+                    <Routes>
 
-          <DarkModeToggle onClickHandler={darkModeToggle}/>
-          <div className="app">
-            <FirstHeader/>
-            <div className="wrapper">
-              <SideMenu/>
-              <div className="main-container">
-                <SecondHeader/>
-                <div className="content-wrapper">
-                  {!promoClosed && <Promo closePromo={closePromo}/>}
-                  <Routes>
-                    {/*<Route path="/" element={<Home/>}/>*/}
-                    <Route path="/categories/mobile-devices"
-                           element={<Content ContentType="Subcategory"
-                                             Items={mobileDevices}/>}/>
-                    <Route path="/categories/pc-and-components"
-                           element={<Content ContentType="Subcategory"
-                                             Items={pcAndComponents}/>}/>}/>
-                    <Route path="/categories/foto-and-video"
-                           element={<Content ContentType="Subcategory"
-                                             Items={mobileDevices}/>}/>}/>
-                    <Route path="/categories/tv-and-monitors"
-                           element={<Content ContentType="Subcategory"
-                                             Items={tvAndMonitors}/>}/>}/>
-                    <Route path="/categories/gaming"
-                           element={<Content ContentType="Subcategory"
-                                             Items={gaming}/>}/>}/>
-                    <Route path="/categories/peripherals"
-                           element={<Content ContentType="Subcategory"
-                                             Items={peripherals}/>}/>}/>
-                    <Route path="/categories/photos-and-videos/products"
-                           element={<Content ContentType="Product"
-                                             Items={peripherals}/>}/>}/>
-                    <Route path="/gift-cards"
-                           element={<Content ContentType="Gift-Card"
-                                             Items={peripherals}/>}/>}/>
-                  </Routes>
-                  <Content/>
+                      <Route path="/categories/mobile-devices"
+                             element={<Content ContentType="Subcategory"
+                                               Items={mobileDevices}/>}/>
+                      <Route path="/categories/pc-and-components"
+                             element={<Content ContentType="Subcategory"
+                                               Items={pcAndComponents}/>}/>}/>
+                      <Route path="/categories/foto-and-video"
+                             element={<Content ContentType="Subcategory"
+                                               Items={mobileDevices}/>}/>}/>
+                      <Route path="/categories/tv-and-monitors"
+                             element={<Content ContentType="Subcategory"
+                                               Items={tvAndMonitors}/>}/>}/>
+                      <Route path="/categories/gaming"
+                             element={<Content ContentType="Subcategory"
+                                               Items={gaming}/>}/>}/>
+                      <Route path="/categories/peripherals"
+                             element={<Content ContentType="Subcategory"
+                                               Items={peripherals}/>}/>}/>
+                      <Route path="/categories/photos-and-videos/products"
+                             element={<Content ContentType="Product"
+                                               Items={peripherals}/>}/>}/>
+
+                      <Route path="/gift-cards"
+                             element={<Content ContentType="Gift-Card"
+                                               Items={peripherals}/>}/>}/>
+
+                      <Route path="/"
+                             element={Home}/>
+
+                    </Routes>
+                  </div>
                 </div>
               </div>
+              <div className="overlay-app"/>
             </div>
-            <div className="overlay-app"/>
+
           </div>
-        </div>
-      </Router>);
+        </AppContext.Provider>
+      </Router>)
+      ;
 
 }
 

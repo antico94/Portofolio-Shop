@@ -1,4 +1,5 @@
 ﻿import {API} from "./API";
+import {useLocation} from 'react-router-dom';
 
 export const currentUser = () => {
     if (isCookiePresent("jwt")) {

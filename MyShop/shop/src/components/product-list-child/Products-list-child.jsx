@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import Pc from './../../assets/images/gaming/pc.png';
 import './product.css';
-import Product from '../product-page/prod';
-import $ from 'jquery';
 
 const ProductsListChild = ({
   Title = 'Sistem Desktop PC Serioux cu procesor AMD Athlon™ PRO 300GE 3.40GHz, 4GB DDR4, 256GB SSD M.2 PCIe, Radeon™ Vega 3, No OS',
