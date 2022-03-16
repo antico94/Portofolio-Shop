@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import ProductsListChild from '../product-list-child/Products-list-child';
 import Subcategory from '../subcategory/subcategory';
-import Test from '../gift-card/gift';
+import Test from '../../pages/gift-card/gift';
 import {AppContext} from '../../containers/app-context/app-context';
 import {UnderConstruction} from '../../pages';
 
@@ -18,10 +18,11 @@ const Content = ({ContentType, Items}) => {
           {
               ContentType === 'Gift-Card' && <Test/>}
           {ContentType === 'Products' && [...Array(100).keys()].map(element => {
-            return (<ProductsListChild/>);
+            return (<ProductsListChild Key={element}/>);
           })}
           {ContentType === 'Subcategory' && Items.map(element => {
             return (<Subcategory name={element.name}
+                                 key={element.name}
                                  image={element.image}/>);
           })}
         </div>
