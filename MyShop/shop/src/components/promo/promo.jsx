@@ -32,11 +32,10 @@ const Promo = React.memo(({closePromo}) => {
         </svg>
         Today's Promotion
       </h3>
-      <div className="content-text">Grab yourself 10 free images
-        from Adobe Stock in a 30-day free trial plan and find
-        perfect image, that will help you with your new project.
+      <div className="content-text">          Morbi luctus pellentesque tortor sit amet placerat. Duis bibendum
+          mollis venenatis. Donec in erat eu diam feugiat consequat nec eu urna.
       </div>
-      <button className="content-button">Start free trial</button>
+      <button className="content-button">View Offers</button>
     </div>
     <img id="x-button-promo"
          src={xButton}

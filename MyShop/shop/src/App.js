@@ -1,25 +1,26 @@
 import './App.css';
 import React, {useEffect, useState} from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import {
-  Content,
   DarkModeToggle,
   FirstHeader,
   Promo,
   SecondHeader,
   SideMenu,
 } from './components';
-import mobileDevices from './containers/subcategory/mobile-devices';
-import pcAndComponents from './containers/subcategory/pc-and-components';
-import tvAndMonitors from './containers/subcategory/tv-and-monitors';
-import gaming from './containers/subcategory/gaming';
-import peripherals from './containers/subcategory/peripherals';
 import {getCookieValue, isCookiePresent} from './containers/utility/utility';
-import {Home} from './pages';
-import {AppContext} from './containers/app-context/app-context';
 import MyRoutes from './components/routes/routes';
+import {useDispatch, useSelector} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {actionCreators} from './state/index';
 
 function App() {
+
+  const account = useSelector((state) => state.account);
+  const dispatch = useDispatch();
+  const {withdrawMoney, depositMoney} = bindActionCreators(actionCreators,
+      dispatch);
+  console.log(account);
 
   //Promo settings user preference
   //region
@@ -62,32 +63,36 @@ function App() {
 
   // Show/Hide the second header
   //region
-  const [showHeader, setShowHeader] = useState(true);
+  // const [showHeader, setShowHeader] = useState(true);
 
   //endregion
 
   return (
       <Router>
-        <AppContext.Provider value={{showHeader, setShowHeader}}>
-          <div className="App">
-            <DarkModeToggle onClickHandler={darkModeToggle}/>
-            <div className="app">
-              <FirstHeader/>
-              <div className="wrapper">
-                <SideMenu/>
-                <div className="main-container">
-                  {showHeader && <SecondHeader/>}
-                  <div className="content-wrapper">
-                    {!promoClosed && <Promo closePromo={closePromo}/>}
-                    <MyRoutes/>
-                  </div>
+        {/*<AppContext.Provider value={{showHeader, setShowHeader}}>*/}
+        <div className="App">
+          <DarkModeToggle onClickHandler={darkModeToggle}/>
+          <div className="app">
+            {/*<h1>{account}</h1>*/}
+            {/*<button onClick={() => depositMoney(1000)}>Deposit</button>*/}
+            {/*<button onClick={()=> withdrawMoney(1000)}>Withdraw</button>*/}
+            <FirstHeader/>
+            <div className="wrapper">
+              <SideMenu/>
+              <div className="main-container">
+                {
+                  // showHeader &&
+                  <SecondHeader/>}
+                <div className="content-wrapper">
+                  {!promoClosed && <Promo closePromo={closePromo}/>}
+                  <MyRoutes/>
                 </div>
               </div>
-              <div className="overlay-app"/>
             </div>
-
+            <div className="overlay-app"/>
           </div>
-        </AppContext.Provider>
+        </div>
+        {/*</AppContext.Provider>*/}
       </Router>)
       ;
 

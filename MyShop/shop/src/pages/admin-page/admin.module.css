@@ -1,0 +1,35 @@
+﻿.main{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.left{
+    width: 50%;
+    height: 100%;
+    border: 1px solid black;
+    position: relative;
+}
+
+.left h1{
+    text-align: center;
+    border-bottom: 1px solid red;
+    
+
+}
+
+.right{
+    height: 100%;
+    width: 50%;
+    border: 1px solid black;
+    position: relative;
+}
+
+.right h1{
+    text-align: center;
+    border-bottom: 1px solid red;
+}
+
+
+
+

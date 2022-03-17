@@ -44,9 +44,9 @@ const Dropdown = ({criteria, Key}) => {
               : 'All'}</span>
           <i className="bx bxs-down-arrow"/></div>
         <ul className="side-menu-glass" id={'glass-menu-' + Key}>
-          {criteria.options.map((element) => {
+          {criteria.options.map((element, index) => {
             return <li
-                key={element}
+                key={index}
                 onClick={e => onClickSelection(e.target)}
             ><a href="#">
               {!selection.includes(element) &&

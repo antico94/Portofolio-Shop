@@ -1,0 +1,114 @@
+.productPage {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #fdb8c6;
+    flex-direction: row;
+    display: flex;
+    /*margin-top: -10px;*/
+}
+
+.bg {
+    display: block;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: absolute;
+    opacity: 0.5;
+}
+
+.leftSide {
+    padding-left: 50px;
+    position: relative;
+    height: 100%;
+    width: 50%;
+    border-right: 1px solid #fdb8c6;
+}
+
+.productImage {
+    position: absolute;
+    width: 550px;
+}
+
+.rightSide {
+    width: 50%;
+    position: relative;
+    margin-right: 50px;
+    padding-left: 50px;
+}
+
+.title {
+    font-weight: 200;
+    font-size: 24px;
+    width: 700px;
+}
+
+.buttons {
+    position: relative;
+    padding-top: 45px;
+    display: flex;
+    /*justify-content: space-between;*/
+    justify-content: space-evenly;
+}
+
+.button {
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid var(--text-color);
+    width: 200px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.buyButton:hover {
+    background-color: red;
+}
+
+.loveButton:hover {
+    background-color: #fdb8c6;
+}
+
+.wishlistButton:hover {
+    background-color: green;
+}
+
+.svg {
+    height: 18px;
+    fill: var(--text-color);
+}
+
+
+.buttonText {
+    font-size: 18px;
+    font-weight: 300;
+    margin-left: 5px;
+}
+
+
+.descriptionTitle {
+    display: flex;
+    font-weight: 250;
+    justify-content: center;
+}
+
+.features {
+    /*border: 1px solid blue;*/
+    height: 80%;
+}
+
+.featuresSubtitle {
+    font-weight: 200;
+}
+
+.featuresText {
+    font-weight: 200;
+}

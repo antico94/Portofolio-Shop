@@ -4,6 +4,7 @@
     flex-direction: row;
 }
 
+
 .app-card .app-card-lower span {
     margin-top: 15px;
     word-wrap: break-word;
@@ -94,7 +95,7 @@
     z-index: 9999;
 }
 
-.app-card span img{
+.app-card span img {
     margin: 0;
     padding: 0;
 }
@@ -148,4 +149,14 @@
     .app-card + .app-card {
         margin-left: 0;
     }
+}
+
+.preventLink{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.svgGlobal{
+    /*fill: var(--text-color);*/
+    fill: red;
 }

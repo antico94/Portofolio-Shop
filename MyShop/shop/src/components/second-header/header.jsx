@@ -8,6 +8,7 @@ const Header = () => {
           {[1, 2, 3].map((index) => {
             return <Dropdown key={index}/>;
           })}
+          {/*<Dropdown/>*/}
         </div>
       </div>
   );
