@@ -17,42 +17,38 @@ const Product = (product) => {
       <div className={css.features}>
         <h1 className={css.descriptionTitle}>Product Description</h1>
         <h2 className={css.featuresSubtitle}>Features:</h2>
-        <p className={css.featuresText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et mi
-          nec turpis molestie euismod non vel ex. Aliquam erat volutpat.
-          Suspendisse sed mi nec elit hendrerit elementum. Aliquam blandit,
-          turpis vitae pretium facilisis, diam nisi lacinia neque, sed pretium
-          est elit at risus. Cras aliquet venenatis velit scelerisque convallis.
-          Proin elementum, sem vel dignissim tincidunt, magna magna consequat
-          urna, eu sollicitudin lorem lectus ac ipsum. Proin vitae urna sem.
-          Donec eu tempor lorem, eget suscipit elit. Nam rutrum arcu massa,
-          suscipit cursus felis placerat ac.
-
-          Morbi luctus pellentesque tortor sit amet placerat. Duis bibendum
-          mollis venenatis. Donec in erat eu diam feugiat consequat nec eu urna.
-          Sed condimentum sodales placerat. Morbi pellentesque posuere dolor in
-          tempor. Cras euismod aliquam neque sed porttitor. Morbi sapien tellus,
-          fringilla vitae felis a, porta rhoncus risus. Aliquam nulla velit,
-          cursus nec urna a, interdum tempus nulla. Proin rhoncus quis eros ac
-          vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-          Curabitur et orci leo. Sed porta ornare convallis. Curabitur vitae
-          gravida tellus, sit amet maximus tortor. Etiam accumsan ligula felis,
-          non porta felis sollicitudin et. Suspendisse ac augue a nibh gravida
-          dictum. Integer suscipit purus sem, nec aliquet dui mattis quis.
-          Nullam eleifend ante lacus. Proin a ante vitae sapien consectetur
-          vestibulum non at sapien. Cras arcu ipsum, tempor sed tortor a, dictum
-          iaculis ex. Pellentesque non congue risus, eget tempus lorem. Nulla
-          cursus mauris nec dapibus condimentum. Donec ut placerat massa, vitae
-          dictum velit. Phasellus non enim dapibus, feugiat tellus sed, auctor
-          purus. Sed ultrices lorem elit, et vehicula urna elementum id. Nulla
-          ut nisi ultrices, sodales massa ut, faucibus turpis.
-
-          Integer pretium lorem nec purus porta porttitor. Duis malesuada
-          scelerisque lacus. Morbi ac ante eu lectus condimentum aliquet et vel
-          magna. Phasellus iaculis cursus rhoncus. Donec metus massa, vestibulum
-          a faucibus vel, vulputate ut quam. Etiam convallis nisi id lacus
-          viverra, id ullamcorper augue posuere. Cras sed euismod sem. Proin ut
-          massa tempus dui maximus aliquam.
+        <p className={css.featuresText}>Today's Special Offers: BullGuard Internet Security for Windows PC with Game Booster! (1 Year / 3 User Licence)
+Case: Corsair 4000D Series Mid-Tower Black Gaming Case (OEM - no fans included)
+Fans & ARGB Upgrades: None Selected
+Cyberpower Noise Reduction Technology: None Selected
+CPU (Processor): AMD Ryzen 9 5900X - 12-Core 3.70GHz, 4.8GHz Turbo - 64MB L3 Cache Processor, Pro OC Compatible (No On-board Graphics)
+CPU Overclocking: No Overclocking
+CPU Cooling: Corsair Hydro Series H100i RGB Pro XT High Performance Liquid Cooling System w/ 240mm Radiator, Ultimate OC Compatible (Corsair CPU Water Cooling, Ultimate OC Compatible)
+Coolant for Cyberpower Hyper Liquid II Cooling Kit: None Selected
+Second Coolant for Cyberpower Hyper Liquid II Cooling Kit (Dual Loop Only): None Selected
+Motherboard: MSI X570-A Pro: ATX w/ RGB, PCIe 4.0, USB 3.2, SATA3, 2x M.2
+Memory (RAM): 16GB (2x8GB) DDR4/3200mhz Dual Channel Memory (Corsair Vengeance LPX w/Heat Spreader)
+Graphics Card (GPU): MSI GeForce® RTX 3080 Ti 12GB - Ray Tracing Technology, DX12®, VR Ready, HDMI, DP - 4 MIN. Monitor Support (Single Card)
+Video Capture: None Selected
+PSU (Power Supply): MSI MPG A850GF 850W 80+ Gold Modular Gaming Power Supply
+PSU Braided Cable: None Selected
+Solid State Drive (SSD): None Selected
+SSD Freebies: None Selected
+M.2 SSD Drive: 1TB (1x1TB) WD Blue SN570 M.2 NVMe PCIe SSD - 3500MB/s Read & 3000MB/s Write (Single Drive)
+2nd M.2 SSD Drive: None Selected
+Hard Drive (HDD & SSHD): None Selected
+RAID (Stripe or Mirror): None Selected
+Optical Drive (BLU-Ray / DVD / DVD-RW): None Selected
+External And Portable Storage (USB / HDD / SSD): None Selected
+External Optical Drive: None Selected
+Memory Card Reader: None Selected
+Internal USB Hub: Built-in USB Ports
+Wireless Networking: N300 Wireless PCI Express Adapter
+Wireless USB Adaptor: None Selected
+Wired Networking: ONBOARD 10/100/1000 GIGABIT LAN PORT -- As standard on all PCs
+Sound Cards: HIGH DEFINITION ON-BOARD AUDIO
+Monitor: None Selected
+Virtual Reality Headsets: None Selected
         </p>
         {/*<BasicRating/>*/}
         {/*<h3>Warranty 36 Months</h3>*/}

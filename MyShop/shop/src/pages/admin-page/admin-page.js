@@ -37,9 +37,6 @@ export default function AdminPage() {
             <div className="col-md-4">
                 <AdminPageChild addOrEdit={addOrEdit}/>
             </div>
-            <div className="col-md-8">
-                <div className="">List of Product records</div>
-            </div>
         </div>
     );
 };

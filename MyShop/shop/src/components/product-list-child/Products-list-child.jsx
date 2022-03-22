@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './product.css';
 import {Link} from 'react-router-dom';
 
-const ProductsListChild = ({Id, Image, Price, Title}) => {
+const ProductsListChild = ({Id, Image, Price, Title, Key}) => {
   const [loved, setLoved] = useState(false);
 
   const onLoveHandler = (e) => {
@@ -12,7 +12,7 @@ const ProductsListChild = ({Id, Image, Price, Title}) => {
 
   return (
 
-      <div className="app-card">
+      <div className="app-card" key={Key}>
         <Link to={'/product/' + Id} className="preventLink">
           {!loved && <a href="#">
             <svg className="svgGlobal"

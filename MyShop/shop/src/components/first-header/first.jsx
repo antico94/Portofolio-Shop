@@ -1,35 +1,80 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import $ from 'jquery';
-import ProfilePic from "./../../assets/images/profile/profile.png"
+import ProfilePic from './../../assets/images/profile/profile.png';
 import {Link} from 'react-router-dom';
+import {useSelector} from 'react-redux';
+import logo from "../../assets/images/logo/logo.png"
 
-const FirstHeader = React.memo(()=> {
-    useEffect(()=>{
-      // Search bar effect
-      $('.search-bar input').focus(function() {
-        $('.header').addClass('wide');
-      }).blur(function() {
-        $('.header').removeClass('wide');
-      });
-  },[])
+const FirstHeader = React.memo(() => {
+  //Refs
+  //region
+  const ProductPage = useRef();
+  const DealsPage = useRef();
+  const CustomerServicePage = useRef();
+  const GiftCardPage = useRef();
+  //endregion
 
+  //States
+  //region
+  const [active, setActive] = useState(ProductPage);
+  const currentPage = useSelector((state) => state.page);
+  // setInterval(() => console.log(currentPage), 1000)
 
-  // Selection on click
-  $(function() {
-    $('.menu-link').click(function() {
-      $('.menu-link').removeClass('is-active');
-      $(this).addClass('is-active');
+  //endregion
+
+  //Search Bar
+  //region
+  useEffect(() => {
+    // Search bar effect
+    $('.search-bar input').focus(function() {
+      $('.header').addClass('wide');
+    }).blur(function() {
+      $('.header').removeClass('wide');
     });
-  });
+  }, []);
+  //endregion
+
+  // Selection on click (Commented)
+  //region
+  // $(function() {
+  //   $('.menu-link').click(function() {
+  //     $('.menu-link').removeClass('is-active');
+  //     $(this).addClass('is-active');
+  //   });
+  // });
+  //endregion
+
+  //Set Active Page
+  //region
+  useEffect(() => {
+    currentPage === 'ProductsPage' ? setActive(ProductPage) : ProductPage.current.classList.contains("is-active") && ProductPage.current.classList.remove("is-active");
+    currentPage === 'GiftCardPage' ? setActive(GiftCardPage) : GiftCardPage.current.classList.contains("is-active") && GiftCardPage.current.classList.remove("is-active");
+    currentPage === 'DealsPage' ? setActive(DealsPage) : DealsPage.current.classList.contains("is-active") && DealsPage.current.classList.remove("is-active");
+    currentPage === 'CustomerServicePage' ? setActive(CustomerServicePage) : CustomerServicePage.current.classList.contains("is-active") && CustomerServicePage.current.classList.remove("is-active");
+    console.log(currentPage);
+  }, [currentPage]);
+
+  useEffect(() => {
+    active.current.classList.add('is-active');
+  },[active]);
+  //endregion
 
   return (
       <div className="header">
-        <div className="menu-circle"/>
+        <div className="logo-image-top">
+          <img src= {logo} alt="logo"/>
+        </div>
+        {/*<h1 className="logo-first-header">Shop</h1>*/}
         <div className="header-menu">
-          <Link className="menu-link is-active" to="/categories/photos-and-videos/products">Products</Link>
-          <Link to="/deals" className="menu-link notify">Today's Deals</Link>
-          <Link to="/customer-service" className="menu-link">Customer Service</Link>
-          <Link className="menu-link notify" to="/gift-cards">Gift Cards</Link>
+
+          <Link ref={ProductPage} className="menu-link"
+                to="/categories/photos-and-videos/products">Products</Link>
+          <Link ref={DealsPage} to="/deals" className="menu-link notify">Today's
+            Deals</Link>
+          <Link ref={CustomerServicePage} to="/customer-service"
+                className="menu-link">Customer Service</Link>
+          <Link ref={GiftCardPage} className="menu-link notify"
+                to="/gift-cards">Gift Cards</Link>
         </div>
         <div className="search-bar">
           <input type="text" placeholder="Search"/>
@@ -54,8 +99,6 @@ const FirstHeader = React.memo(()=> {
                alt=""/>
         </div>
       </div>);
-})
-
-
+});
 
 export default FirstHeader;

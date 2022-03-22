@@ -15,3 +15,13 @@ export const withdrawMoney = (amount) => {
     })
   }
 }
+
+
+export const setPage = (pageName) => {
+  return (dispatch) => {
+    dispatch({
+      type: pageName,
+      payload: pageName
+    })
+  }
+}

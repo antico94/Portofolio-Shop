@@ -1,6 +1,6 @@
 ﻿import React, {useState} from 'react';
 import css from './admin.module.css';
-import photo from '../../assets/images/profile/profile.png';
+import photo from '../../assets/images/pc-and-components/computer.png';
 import './admin.css';
 
 const AdminPageChild = (props) => {
@@ -85,11 +85,11 @@ const AdminPageChild = (props) => {
 
   return (
       <div className={css.main}>
-        <div className={css.left}>
-          <h1>Heelo</h1>
+        <div className={css.first}>
+          <h1>Subcategory</h1>
         </div>
-        <div className={css.right}>
-          <h1>There</h1>
+        <div className={css.second}>
+          <h1>Product</h1>
           <form autoComplete="off" noValidate={true}
                 onSubmit={handleFormSubmit}>
             <div className="card">
@@ -140,6 +140,10 @@ const AdminPageChild = (props) => {
             </div>
           </form>
         </div>
+        <div className={css.third}>
+          <h1>Subcategory</h1>
+        </div>
+
       </div>
   );
 };

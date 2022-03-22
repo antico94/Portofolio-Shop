@@ -13,14 +13,15 @@ import MyRoutes from './components/routes/routes';
 import {useDispatch, useSelector} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {actionCreators} from './state/index';
+import {depositMoney} from './state/action-creators';
 
 function App() {
-
-  const account = useSelector((state) => state.account);
-  const dispatch = useDispatch();
-  const {withdrawMoney, depositMoney} = bindActionCreators(actionCreators,
-      dispatch);
-  console.log(account);
+  // const account = useSelector((state) => state.account);
+  // const currentPage = useSelector((state) => state.page);
+  // const dispatch = useDispatch();
+  // const {depositMoney, withdrawMoney} = bindActionCreators(actionCreators,
+  //     dispatch);
+  // const {setPage} = bindActionCreators(actionCreators, dispatch);
 
   //Promo settings user preference
   //region
@@ -69,20 +70,14 @@ function App() {
 
   return (
       <Router>
-        {/*<AppContext.Provider value={{showHeader, setShowHeader}}>*/}
         <div className="App">
           <DarkModeToggle onClickHandler={darkModeToggle}/>
           <div className="app">
-            {/*<h1>{account}</h1>*/}
-            {/*<button onClick={() => depositMoney(1000)}>Deposit</button>*/}
-            {/*<button onClick={()=> withdrawMoney(1000)}>Withdraw</button>*/}
             <FirstHeader/>
             <div className="wrapper">
               <SideMenu/>
               <div className="main-container">
-                {
-                  // showHeader &&
-                  <SecondHeader/>}
+                {<SecondHeader/>}
                 <div className="content-wrapper">
                   {!promoClosed && <Promo closePromo={closePromo}/>}
                   <MyRoutes/>
@@ -92,7 +87,6 @@ function App() {
             <div className="overlay-app"/>
           </div>
         </div>
-        {/*</AppContext.Provider>*/}
       </Router>)
       ;
 

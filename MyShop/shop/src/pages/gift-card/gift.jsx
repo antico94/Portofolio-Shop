@@ -3,7 +3,7 @@ import css from './gift.module.css';
 import {Cards} from '../../containers/gift-cards/gift-cards';
 import {animated, Spring} from 'react-spring';
 
-const TestGift = () => {
+const GiftCardPage = () => {
   const [selectionIndex, setSelectionIndex] = useState(2);
   const [selection, setSelection] = useState([]);
   const pricesList = [50, 100, 150, 200, 500];
@@ -204,4 +204,4 @@ const TestGift = () => {
   );
 };
 
-export default TestGift;
+export default GiftCardPage;
