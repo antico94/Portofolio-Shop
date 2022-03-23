@@ -3,7 +3,7 @@ import $ from 'jquery';
 import ProfilePic from './../../assets/images/profile/profile.png';
 import {Link} from 'react-router-dom';
 import {useSelector} from 'react-redux';
-import logo from "../../assets/images/logo/logo.png"
+import logo from './../../assets/images/logo/logo.png'
 
 const FirstHeader = React.memo(() => {
   //Refs
@@ -51,7 +51,6 @@ const FirstHeader = React.memo(() => {
     currentPage === 'GiftCardPage' ? setActive(GiftCardPage) : GiftCardPage.current.classList.contains("is-active") && GiftCardPage.current.classList.remove("is-active");
     currentPage === 'DealsPage' ? setActive(DealsPage) : DealsPage.current.classList.contains("is-active") && DealsPage.current.classList.remove("is-active");
     currentPage === 'CustomerServicePage' ? setActive(CustomerServicePage) : CustomerServicePage.current.classList.contains("is-active") && CustomerServicePage.current.classList.remove("is-active");
-    console.log(currentPage);
   }, [currentPage]);
 
   useEffect(() => {
@@ -61,12 +60,14 @@ const FirstHeader = React.memo(() => {
 
   return (
       <div className="header">
-        <div className="logo-image-top">
-          <img src= {logo} alt="logo"/>
+        <div className="logo-top-container">
+          {/*<img src={logo} className="logo-top-image"/>*/}
+          <h1 className="logo-top-text">
+            <span className="logo-top-text-first">PRIME</span>
+            <span className="logo-top-text-second">STORE</span>
+          </h1>
         </div>
-        {/*<h1 className="logo-first-header">Shop</h1>*/}
         <div className="header-menu">
-
           <Link ref={ProductPage} className="menu-link"
                 to="/categories/photos-and-videos/products">Products</Link>
           <Link ref={DealsPage} to="/deals" className="menu-link notify">Today's

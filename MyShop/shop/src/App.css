@@ -217,15 +217,6 @@ body.light-mode .video-bg:before {
     }
 }
 
-.menu-circle {
-    width: 15px;
-    height: 15px;
-    background-color: #f96057;
-    border-radius: 50%;
-    box-shadow: 24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65;
-    margin-right: 195px;
-    flex-shrink: 0;
-}
 
 @media screen and (max-width: 945px) {
     .menu-circle {
@@ -474,14 +465,16 @@ body.light-mode .video-bg:before {
 }
 
 .content-wrapper-header {
-    /*pointer-events: none;*/
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 102%;
     justify-content: space-between;
     background-image: url("https://www.transparenttextures.com/patterns/cubes.png"), linear-gradient(to right top, #cf4af3, #e73bd7, #f631bc, #fd31a2, #ff3a8b, #ff4b78, #ff5e68, #ff705c, #ff8c51, #ffaa49, #ffc848, #ffe652);
     border-radius: 14px;
     padding: 20px 40px;
+    margin-bottom: 20px;
+    position: relative;
+    left: -15px;
 }
 
 @media screen and (max-width: 415px) {
@@ -847,7 +840,10 @@ body.light-mode .video-bg:before {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    width: calc(104%);
+    width: 106%;
+    position: relative;
+    top: -20px;
+    left: -20px;
 }
 
 
@@ -894,12 +890,29 @@ body.light-mode .video-bg:before {
     opacity: 0.5;
 }
 
-.logo-image-top {
-    width: 15px;
+.logo-top-container {
+    width: 175px;
+    margin-right: 35px;
     height: 15px;
-    background-color: #f96057;
-    border-radius: 50%;
-    box-shadow: 24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65;
-    margin-right: 195px;
     flex-shrink: 0;
+    position: relative;
+    top: -37px;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
+
+
+.logo-top-text-first {
+    color: #f49faa;
+    font-size: 40px;
+    font-family: "Bebas Neue", monospace;
+}
+
+.logo-top-text-second {
+    font-size: 40px;
+    color: #f25aaa;
+    font-family: "Bebas Neue", monospace;
+}
+

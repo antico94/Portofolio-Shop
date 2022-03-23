@@ -10,10 +10,7 @@ import {
 } from './components';
 import {getCookieValue, isCookiePresent} from './containers/utility/utility';
 import MyRoutes from './components/routes/routes';
-import {useDispatch, useSelector} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {actionCreators} from './state/index';
-import {depositMoney} from './state/action-creators';
+import {useSelector} from 'react-redux';
 
 function App() {
   // const account = useSelector((state) => state.account);
@@ -37,21 +34,17 @@ function App() {
   };
   //endregion
 
+  //State Manager
   //Dark Mode user preference
   //region
+
   const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {
-    setDarkMode(JSON.parse(window.localStorage.getItem('darkMode')));
-  }, []);
-  useEffect(() => {
     if (darkMode) {
-      localStorage.setItem('darkMode', 'true');
       if (document.body.classList.contains('light-mode')) {
         document.body.classList.remove('light-mode');
       }
     } else {
-      localStorage.setItem('darkMode', 'false');
-
       if (!document.body.classList.contains('light-mode')) {
         document.body.classList.add('light-mode');
       }
@@ -60,12 +53,9 @@ function App() {
   const darkModeToggle = () => {
     setDarkMode(!darkMode);
   };
-  //endregion
 
   // Show/Hide the second header
-  //region
-  // const [showHeader, setShowHeader] = useState(true);
-
+  const headerStatus = useSelector((state) => state.headerStatus);
   //endregion
 
   return (
@@ -77,7 +67,7 @@ function App() {
             <div className="wrapper">
               <SideMenu/>
               <div className="main-container">
-                {<SecondHeader/>}
+                {headerStatus && <SecondHeader/>}
                 <div className="content-wrapper">
                   {!promoClosed && <Promo closePromo={closePromo}/>}
                   <MyRoutes/>

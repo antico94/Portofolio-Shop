@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import Subcategory from '../subcategory/subcategory';
-import Test from '../../pages/gift-card/gift';
+import {GiftCardPage, ProductList} from '../index';
 import {UnderConstruction} from '../../pages';
 import Product from '../product-page/prod';
 import AdminPage from '../../pages/admin-page/admin-page';
 import {fetchCustomData} from '../../containers/utility/utility';
-import ProductsListChild from '../product-list-child/Products-list-child';
 import Pc from '../../assets/images/gaming/pc.png';
 import {bindActionCreators} from 'redux';
 import {useDispatch} from 'react-redux';
@@ -15,13 +14,27 @@ const Content = ({ContentType, Items, CategoryId}) => {
 
   const dispatch = useDispatch();
   const {setPage} = bindActionCreators(actionCreators, dispatch);
+  const {showHeader, hideHeader} = bindActionCreators(actionCreators, dispatch)
   const [dataLoaded, setDataLoaded] = useState(false);
   const [data, setData] = useState([]);
+
+  //State Management
+  //region
+  //ShowHeaderStatus
+  ContentType === "Products" ? showHeader() : hideHeader()
+
+  //First Header Active Tab Control
+    ContentType === "Gift-Card" && setPage("GiftCardPage")
+    ContentType === "Deals" && setPage("DealsPage")
+    ContentType === "Subcategory" && setPage("ProductsPage")
+    ContentType === "Product" && setPage("ProductsPage")
+    ContentType === "CustomerService" && setPage('CustomerServicePage');
+
+  //endregion
 
   useEffect(() => {
     if (ContentType === 'Subcategory') {
       setDataLoaded(false);
-      setPage('ProductsPage');
       fetchCustomData(
           'https://localhost:7085/api/Subcategory/category-id/' + CategoryId,
           'get').then(response => {
@@ -39,17 +52,15 @@ const Content = ({ContentType, Items, CategoryId}) => {
   }, [CategoryId]);
 
   if (ContentType === 'Deals') {
-    setPage('DealsPage');
     return <UnderConstruction/>;
   }
 
     if (ContentType === 'CustomerService') {
-    setPage('CustomerServicePage');
     return <UnderConstruction/>;
   }
 
   if (ContentType === 'Product') {
-    setPage('ProductsPage');
+
     return <Product/>;
   }
 
@@ -58,15 +69,13 @@ const Content = ({ContentType, Items, CategoryId}) => {
   }
 
   if (ContentType === 'Gift-Card') {
-    setPage('GiftCardPage');
-    return <Test/>;
+    return <GiftCardPage/>;
   }
 
   return (<div className="content-section">
     <div className="apps-card">
       {ContentType === 'Products' && [...Array(100).keys()].map(element => {
-        setPage("ProductsPage")
-        return (<ProductsListChild
+        return (<ProductList
             Key={element}
             Title="Sistem Desktop PC Serioux cu procesor AMD Athlon™ PRO 300GE 3.40GHz, 4GB DDR4, 256GB SSD M.2 PCIe, Radeon™ Vega 3, No OS"
             Price="5.499"

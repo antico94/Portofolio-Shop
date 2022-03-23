@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropdown from '../dropdown/dropdown';
+import {Dropdown} from '../index';
 
 const Header = () => {
   return (

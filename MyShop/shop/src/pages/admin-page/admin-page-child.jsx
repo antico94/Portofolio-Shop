@@ -1,16 +1,62 @@
-﻿import React, {useState} from 'react';
+﻿import React, {useEffect, useState} from 'react';
 import css from './admin.module.css';
 import photo from '../../assets/images/pc-and-components/computer.png';
 import './admin.css';
+import {fetchCustomData} from '../../containers/utility/utility';
+import Select from 'react-select';
 
 const AdminPageChild = (props) => {
+
   const {addOrEdit} = props;
   const defaultImage = photo;
+  const [dataLoaded, setDataLoaded] = useState(false);
+  const [subcategoryLoaded, setSubcategoryLoaded] = useState(false);
+  const [data, setData] = useState([]);
+  const [categorySelected, setCategorySelected] = useState('');
+  const [subcategories, setSubcategories] = useState([]);
 
+  useEffect(() => {
+    if (!dataLoaded) {
+      fetchCustomData('https://localhost:7085/api/Category/categories-dropdown',
+          'get').then(res => res.json()).then(info => {
+        setDataLoaded(true);
+        setData(info);
+      });
+    }
+  }, [dataLoaded]);
+
+  useEffect(() => {
+    if (categorySelected !== '') {
+      setSubcategories(data[categorySelected].subcategories);
+      setSubcategoryLoaded(true);
+    }
+  }, [categorySelected]);
+
+  const onChangeCategory = e => {
+    setCategorySelected(e.value);
+  };
+
+  const onChangeSubCategory = e => {
+    console.log(e.value);
+    setValues({
+      ...values,
+      'subcategory': e.value,
+    });
+  };
+
+  useEffect(() => {
+    if (subcategoryLoaded) {
+      console.log(subcategories);
+    }
+  });
+
+  //Hide
+  //region
   const initialFieldValues = {
     brand: '',
     title: '',
     description: '',
+    price: '',
     subcategory: '',
     imageName: '',
     imageSrc: defaultImage,
@@ -54,9 +100,11 @@ const AdminPageChild = (props) => {
     temp.brand = values.brand !== '';
     temp.title = values.title !== '';
     temp.description = values.description !== '';
+    temp.price = values.price !== '';
     temp.subcategory = values.subcategory !== '';
     temp.imageSrc = values.imageSrc !== defaultImage;
     setErrors(temp);
+    console.log(errors);
     return Object.values(temp).every(x => x === true);
   };
 
@@ -71,17 +119,21 @@ const AdminPageChild = (props) => {
     if (validate()) {
       const formData = new FormData();
       formData.append('brand', values.brand);
+      formData.append('title', values.title);
       formData.append('description', values.description);
-      formData.append('subcategory', values.subcategory);
+      formData.append('price', values.description);
+      formData.append('subcategoryId', values.subcategory);
       formData.append('imageName', values.imageName);
       formData.append('imageFile', values.imageFile);
       addOrEdit(formData, resetForm);
     }
   };
 
-  const applyErrorClass = field => ((field in errors && errors[field] === false)
+  const applyErrorClass = field => ((field in errors && errors[field] ===
+      false)
       ? ' invalidField'
       : '');
+  //endregion
 
   return (
       <div className={css.main}>
@@ -96,34 +148,73 @@ const AdminPageChild = (props) => {
               <img src={(values.imageSrc)} alt={'nada'}
                    className={'card-img-top'} style={{height: '250px'}}/>
               <div className="card-body">
+
+                {/*Brand*/}
                 <div className="form-group">
                   <input
-                      className={'form-control-file' + applyErrorClass('brand')}
+                      className={'form-control-file' +
+                          applyErrorClass('brand')}
                       value={values.brand} placeholder="Brand Name"
                       name="brand"
                       onChange={handleInputChange}/>
                 </div>
 
+                {/*Title*/}
                 <div className="form-group">
                   <input
-                      className={'form-control-file' + applyErrorClass('title')}
+                      className={'form-control-file' +
+                          applyErrorClass('title')}
                       value={values.title} placeholder="Title" name="title"
                       onChange={handleInputChange}/>
                 </div>
 
+                {/*Description*/}
                 <div className="form-group">
                   <input className={'form-control-file' +
-                      applyErrorClass('description')} value={values.description}
+                      applyErrorClass('description')}
+                         value={values.description}
                          placeholder="Description"
                          name="description" onChange={handleInputChange}/>
                 </div>
 
+                {/*Price*/}
                 <div className="form-group">
                   <input className={'form-control-file' +
-                      applyErrorClass('subcategory')} value={values.subcategory}
-                         placeholder="Subcategory"
-                         name="subcategory" onChange={handleInputChange}/>
+                      applyErrorClass('price')} value={values.price}
+                         placeholder="Price"
+                         name="price" onChange={handleInputChange}/>
                 </div>
+
+
+                {/*<div className="form-group">*/}
+                {/*  <input className={'form-control-file' +*/}
+                {/*      applyErrorClass('subcategory')}*/}
+                {/*         value={values.subcategory}*/}
+                {/*         placeholder="SubcategoryId"*/}
+                {/*         name="subcategory" onChange={handleInputChange}/>*/}
+                {/*</div>*/}
+
+                <label>Category:</label>
+                <Select
+                    id="test"
+                    onChange={e => onChangeCategory(e)}
+                    options={data.map(el => {
+                      return {value: el.categoryId, label: el.categoryName};
+                    })}
+                />
+
+                {subcategoryLoaded && <Select
+                    name="subcategory"
+                    className={'form-control-file' +
+                        applyErrorClass('subcategory')}
+                    onChange={onChangeSubCategory}
+                    options={subcategories.map(el => {
+                      return {
+                        value: el.subcategoryId,
+                        label: el.subcategoryName,
+                      };
+                    })}
+                />}
 
                 <div className="form-group">
                   <input id="image-uploader" type={'file'} accept={'image/*'}
