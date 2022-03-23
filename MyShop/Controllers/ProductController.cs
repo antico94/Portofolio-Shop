@@ -1,9 +1,4 @@
 #nullable disable
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyShop.Models.Database;
@@ -32,6 +27,15 @@ namespace MyShop.Controllers
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
             return await _context.Products.ToListAsync();
+        }
+        
+        
+        // GET: api/Subcategory/category-id/5
+        [HttpGet]
+        [Route("subcategory-id/{id}")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductsBySubcategoryId(int id)
+        {
+            return await _context.Products.Where(i=>i.Subcategory.SubcategoryId == id).ToListAsync();
         }
 
         // GET: api/Product/5
@@ -84,6 +88,11 @@ namespace MyShop.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct([FromForm] WebProduct webModel)
         {
+            Console.WriteLine("The Brand is " + webModel.Brand);
+            Console.WriteLine("The Title is " + webModel.Title);
+            Console.WriteLine("The Description is " + webModel.Description);
+            Console.WriteLine("The Price is " + webModel.Price);
+            Console.WriteLine("The SubcategoryId is " + webModel.SubcategoryId);
             var product = new Product
             {
                 Brand = (Brand)Enum.Parse(typeof(Brand), webModel.Brand),

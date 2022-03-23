@@ -185,14 +185,7 @@ const AdminPageChild = (props) => {
                          name="price" onChange={handleInputChange}/>
                 </div>
 
-
-                {/*<div className="form-group">*/}
-                {/*  <input className={'form-control-file' +*/}
-                {/*      applyErrorClass('subcategory')}*/}
-                {/*         value={values.subcategory}*/}
-                {/*         placeholder="SubcategoryId"*/}
-                {/*         name="subcategory" onChange={handleInputChange}/>*/}
-                {/*</div>*/}
+                
 
                 <label>Category:</label>
                 <Select

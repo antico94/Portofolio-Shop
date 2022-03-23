@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyShop.Models.Database;
 using MyShop.Models.Products.Categories;
+using MyShop.Models.WebModels;
 
 namespace MyShop.Controllers
 {
@@ -29,6 +30,36 @@ namespace MyShop.Controllers
         public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
         {
             return await _context.Categories.ToListAsync();
+        }
+        
+        // GET: api/Category
+        [HttpGet]
+        [Route("categories-dropdown")]
+        public ActionResult<IEnumerable<WebCategoryDropdown>> GetCategoriesForDropdown()
+        {
+            var menu = _context.Categories.Include(i => i.Subcategories);
+            var returnedData = new List<WebCategoryDropdown>();
+            foreach (var category in menu)
+            {
+                var subcategories = new List<WebSubcategoryDropdown>();
+                foreach (var sub in category.Subcategories)
+                {
+                    subcategories.Add(new WebSubcategoryDropdown()
+                    {
+                        SubcategoryId = sub.SubcategoryId,
+                        SubcategoryName = sub.SubcategoryName
+                    });
+                }
+                returnedData.Add(
+                    new WebCategoryDropdown()
+                    {
+                        CategoryId = category.CategoryId,
+                        CategoryName = category.CategoryName,
+                        Subcategories = subcategories
+                    });
+            }
+
+            return returnedData;
         }
 
         // GET: api/Category/5

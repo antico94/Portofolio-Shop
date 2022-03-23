@@ -28,9 +28,18 @@ namespace MyShop.Controllers
 
         // GET: api/Subcategory
         [HttpGet]
+        
         public async Task<ActionResult<IEnumerable<Subcategory>>> GetSubcategories()
         {
             return await _context.Subcategories.ToListAsync();
+        }
+        
+        // GET: api/Subcategory/category-id/5
+        [HttpGet]
+        [Route("category-id/{id}")]
+        public async Task<ActionResult<IEnumerable<Subcategory>>> GetSubcategoriesByCategoryId(int id)
+        {
+            return await _context.Subcategories.Where(i=>i.Category.CategoryId == id).ToListAsync();
         }
 
         // GET: api/Subcategory/5
