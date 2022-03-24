@@ -2,7 +2,7 @@
 
 public class WebProduct
 {
-    public string Brand { get; set; }
+    public int Brand { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
     public double Price { get; set; }

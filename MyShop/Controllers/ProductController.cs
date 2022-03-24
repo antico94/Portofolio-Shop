@@ -28,14 +28,14 @@ namespace MyShop.Controllers
         {
             return await _context.Products.ToListAsync();
         }
-        
-        
+
+
         // GET: api/Subcategory/category-id/5
         [HttpGet]
         [Route("subcategory-id/{id}")]
         public async Task<ActionResult<IEnumerable<Product>>> GetProductsBySubcategoryId(int id)
         {
-            return await _context.Products.Where(i=>i.Subcategory.SubcategoryId == id).ToListAsync();
+            return await _context.Products.Where(i => i.Subcategory.SubcategoryId == id).ToListAsync();
         }
 
         // GET: api/Product/5
@@ -93,9 +93,11 @@ namespace MyShop.Controllers
             Console.WriteLine("The Description is " + webModel.Description);
             Console.WriteLine("The Price is " + webModel.Price);
             Console.WriteLine("The SubcategoryId is " + webModel.SubcategoryId);
+            
+
             var product = new Product
             {
-                Brand = (Brand)Enum.Parse(typeof(Brand), webModel.Brand),
+                Brand = GetBrandById(webModel.Brand),
                 Title = webModel.Title,
                 Description = webModel.Description,
                 Price = webModel.Price,
@@ -153,6 +155,18 @@ namespace MyShop.Controllers
             if (subcategories.Any(i => i.SubcategoryId == id))
             {
                 return subcategories.First(i => i.SubcategoryId == id);
+            }
+
+            throw new Exception("invalid subcategory id");
+        }
+        
+        [NonAction]
+        public Brand GetBrandById(int id)
+        {
+            var subcategories = _context.Brands;
+            if (subcategories.Any(i => i.BrandId == id))
+            {
+                return subcategories.First(i => i.BrandId == id);
             }
 
             throw new Exception("invalid subcategory id");

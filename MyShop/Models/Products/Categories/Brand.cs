@@ -1,14 +1,10 @@
-﻿namespace MyShop.Models.Products.Categories;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-public enum Brand
+namespace MyShop.Models.Products.Categories;
+
+public class Brand
 {
-    Samsung,
-    Apple,
-    LG,
-    Asus,
-    Sony,
-    nVidia,
-    Lenovo,
-    Intel,
-    AMD
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int BrandId { get; set; }
+    public string BrandName { get; set; }
 }

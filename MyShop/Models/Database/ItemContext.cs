@@ -20,6 +20,8 @@ public class ItemContext : DbContext
     public DbSet<Product> Products { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<Subcategory> Subcategories { get; set; }
+
+    public DbSet<Brand> Brands { get; set; }
     // public DbSet<Headphones> Headphones { get; set; }
     // public DbSet<Mouse> Mouses { get; set; }
     // public DbSet<Mousepad> Mousepads { get; set; }

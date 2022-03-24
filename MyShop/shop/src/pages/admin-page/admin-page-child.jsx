@@ -4,6 +4,9 @@ import photo from '../../assets/images/pc-and-components/computer.png';
 import './admin.css';
 import {fetchCustomData} from '../../containers/utility/utility';
 import Select from 'react-select';
+import {ReactNotifications, Store} from 'react-notifications-component';
+import 'animate.css';
+import 'react-notifications-component/dist/theme.css';
 
 const AdminPageChild = (props) => {
 
@@ -121,6 +124,7 @@ const AdminPageChild = (props) => {
   const handleFormSubmit = e => {
     e.preventDefault();
     if (validate()) {
+      NotifySuccess();
       const formData = new FormData();
       formData.append('brand', values.brand);
       formData.append('title', values.title);
@@ -130,7 +134,7 @@ const AdminPageChild = (props) => {
       formData.append('imageName', values.imageName);
       formData.append('imageFile', values.imageFile);
       addOrEdit(formData, resetForm);
-    }
+    } else NotifyFailed();
   };
 
   const applyErrorClass = field => ((field in errors && errors[field] === false)
@@ -174,101 +178,142 @@ const AdminPageChild = (props) => {
 
 //endregion
 
+  //Notifications
+  //region
+  const NotifySuccess = () => {
+    Store.addNotification({
+      title: 'Success',
+      message: 'Product added successfully',
+      type: 'success',
+      container: 'bottom-right',
+      animationIn: ['animate__animated', 'animate__bounceInRight'],
+      animationOut: ['animate__animated', 'animate__fadeOut'],
+      dismiss: {
+        duration: 2000,
+      },
+      width: 500,
+    });
+  };
+
+  const NotifyFailed = () => {
+    Store.addNotification({
+      title: 'Failed',
+      message: 'You need to complete all fields.',
+      type: 'info',
+      container: 'bottom-right',
+      animationIn: ['animate__animated', 'animate__bounceInRight'],
+      animationOut: ['animate__animated', 'animate__fadeOut'],
+      dismiss: {
+        duration: 2000,
+      },
+      width: 500,
+
+    });
+  };
+
+  //endregion
+
   return (<form className={css.main} autoComplete="off" noValidate={true}
                 onSubmit={handleFormSubmit}>
+    <ReactNotifications/>
 
-        {/*Image Preview*/}
-        <div className={css.left}>
-          <img className={css.image} src={(values.imageSrc)} alt={'nada'}/>
-        </div>
-
-
-        <div className={css.right}>
-          <h1 style={{textAlign: 'center', margin: 0, padding:0}}>Product Details</h1>
-          {/*Title*/}
-          <label>Title:</label>
-          <div>
-            <input
-                className={css.inputField + applyErrorClass('title')}
-                value={values.title}
-                placeholder="Write a short description of your product..."
-                name="title"
-                onChange={handleInputChange}/>
-          </div>
+    {/*Image Preview*/}
+    <div className={css.left}>
+      <img className={css.image} src={(values.imageSrc)} alt={'nada'}/>
+    </div>
 
 
-          {/*Price*/}
-          <label>Price:</label>
-          <div>
-            <input className={css.inputField + applyErrorClass('price')}
-                   value={values.price}
-                   placeholder="Ex: 1000.99"
-                   name="price" onChange={handleInputChange}/>
-          </div>
-
-          {/*Brands*/}
-          {brandsLoaded && (<div>
-            <label>Brand:</label>
-            <Select
-                styles={defaultStyle}
-                className={css.selectField + applyErrorClass('brand')}
-                onChange={onChangeBrand}
-                options={brandsData.map(el => {
-                  return {
-                    value: el.brandId, label: el.brandName,
-                  };
-                })}
-            /></div>)}
+    <div className={css.right}>
+      <h1 style={{textAlign: 'center', margin: 0, padding: 0}}>Product
+        Details</h1>
+      {/*Title*/}
+      <label>Title:</label>
+      <div>
+        <input
+            className={css.inputField + applyErrorClass('title')}
+            value={values.title}
+            placeholder="Write a short description of your product..."
+            name="title"
+            onChange={handleInputChange}/>
+      </div>
 
 
-          <label>Category:</label>
-          <Select
-              styles={defaultStyle}
-              className={css.selectField + applyErrorClass('category')}
-              onChange={e => onChangeCategory(e)}
-              options={categoryData.map(el => {
-                return {value: el.categoryId, label: el.categoryName};
-              })}
-          />
+      {/*Price*/}
+      <label>Price:</label>
+      <div>
+        <input className={css.inputField + applyErrorClass('price')}
+               value={values.price}
+               placeholder="Ex: 1000.99"
+               name="price" onChange={handleInputChange}/>
+      </div>
 
-          {subcategoryLoaded && (<div>
-            <label>Subcategory:</label>
-            <Select
-                styles={defaultStyle}
-                name="subcategory"
-                className={css.selectField + applyErrorClass('subcategory')}
-                onChange={onChangeSubCategory}
-                options={subcategories.map(el => {
-                  return {
-                    value: el.subcategoryId, label: el.subcategoryName,
-                  };
-                })}
-            /></div>)}
-          <label>Image:</label>
+      {/*Brands*/}
+      {brandsLoaded && (<div>
+        <label>Brand:</label>
+        <Select
+            styles={defaultStyle}
+            className={css.selectField + applyErrorClass('brand')}
+            onChange={onChangeBrand}
+            options={brandsData.map(el => {
+              return {
+                value: el.brandId, label: el.brandName,
+              };
+            })}
+        /></div>)}
 
-          <div className={css.uploadDiv}>
-            <input id="image-uploader" type={'file'} accept={'image/*'}
-                   className={applyErrorClass('imageSrc')}
-                   onChange={showPreview}/>
-          </div>
 
-          {/*Description*/}
-          <label>Description:</label>
-          <div>
+      <label>Category:</label>
+      <Select
+          styles={defaultStyle}
+          className={css.selectField + applyErrorClass('category')}
+          onChange={e => onChangeCategory(e)}
+          options={categoryData.map(el => {
+            return {value: el.categoryId, label: el.categoryName};
+          })}
+      />
+
+      {subcategoryLoaded && (<div>
+        <label>Subcategory:</label>
+        <Select
+            styles={defaultStyle}
+            name="subcategory"
+            className={css.selectField + applyErrorClass('subcategory')}
+            onChange={onChangeSubCategory}
+            options={subcategories.map(el => {
+              return {
+                value: el.subcategoryId, label: el.subcategoryName,
+              };
+            })}
+        /></div>)}
+      <label>Image:</label>
+
+      <div className={css.uploadDiv}>
+
+      </div>
+
+      <div className={css.uploadDiv}>
+        <input id="image-uploader" type={'file'} accept={'image/*'}
+               className={applyErrorClass('imageSrc')}
+               onChange={showPreview}/>
+      </div>
+
+      {/*Description*/}
+      <label>Description:</label>
+      <div>
             <textarea
                 className={css.inputField + applyErrorClass('description')}
                 id={css.description}
                 value={values.description}
                 placeholder="Describe your product ..."
                 name="description" onChange={handleInputChange}/>
-          </div>
-          <br/>
-          <div className={css.buttonArea}>
-            <button className={css.button} type={'submit'}>Submit
-            </button>
-          </div>
-        </div>
-      </form>);
+      </div>
+      <br/>
+      <div className={css.buttonArea}>
+        <button className={css.button} type={'submit'}>Submit
+        </button>
+      </div>
+    </div>
+  </form>);
 };
 
 export default AdminPageChild;
