@@ -1,4 +1,4 @@
-﻿./images
+﻿!/images/**/*.*
 ./../.idea
 ./shop/node_modules
 ./shop/package-lock.json
