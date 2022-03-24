@@ -1,9 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react';
 import $ from 'jquery';
 import ProfilePic from './../../assets/images/profile/profile.png';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {useSelector} from 'react-redux';
-import logo from './../../assets/images/logo/logo.png'
 
 const FirstHeader = React.memo(() => {
   //Refs
@@ -47,22 +46,38 @@ const FirstHeader = React.memo(() => {
   //Set Active Page
   //region
   useEffect(() => {
-    currentPage === 'ProductsPage' ? setActive(ProductPage) : ProductPage.current.classList.contains("is-active") && ProductPage.current.classList.remove("is-active");
-    currentPage === 'GiftCardPage' ? setActive(GiftCardPage) : GiftCardPage.current.classList.contains("is-active") && GiftCardPage.current.classList.remove("is-active");
-    currentPage === 'DealsPage' ? setActive(DealsPage) : DealsPage.current.classList.contains("is-active") && DealsPage.current.classList.remove("is-active");
-    currentPage === 'CustomerServicePage' ? setActive(CustomerServicePage) : CustomerServicePage.current.classList.contains("is-active") && CustomerServicePage.current.classList.remove("is-active");
+    currentPage === 'ProductsPage'
+        ? setActive(ProductPage)
+        : ProductPage.current.classList.contains('is-active') &&
+        ProductPage.current.classList.remove('is-active');
+    currentPage === 'GiftCardPage'
+        ? setActive(GiftCardPage)
+        : GiftCardPage.current.classList.contains('is-active') &&
+        GiftCardPage.current.classList.remove('is-active');
+    currentPage === 'DealsPage'
+        ? setActive(DealsPage)
+        : DealsPage.current.classList.contains('is-active') &&
+        DealsPage.current.classList.remove('is-active');
+    currentPage === 'CustomerServicePage'
+        ? setActive(CustomerServicePage)
+        : CustomerServicePage.current.classList.contains('is-active') &&
+        CustomerServicePage.current.classList.remove('is-active');
   }, [currentPage]);
 
   useEffect(() => {
     active.current.classList.add('is-active');
-  },[active]);
+  }, [active]);
   //endregion
+
+  const logoClickHandler = () => {
+    console.log('Sex');
+    return <useNavigate to="http://localhost:3000/categories/mobile-devices"/>;
+  };
 
   return (
       <div className="header">
         <div className="logo-top-container">
-          {/*<img src={logo} className="logo-top-image"/>*/}
-          <h1 className="logo-top-text">
+          <h1 className="logo-top-text" onClick={logoClickHandler}>
             <span className="logo-top-text-first">PRIME</span>
             <span className="logo-top-text-second">STORE</span>
           </h1>
@@ -80,6 +95,9 @@ const FirstHeader = React.memo(() => {
         <div className="search-bar">
           <input type="text" placeholder="Search"/>
         </div>
+        <div className="header-menu">        <Link className="menu-link"
+              to="/admin">Admin</Link></div>
+
         <div className="header-profile">
           <div className="notification">
             <span className="notification-number">3</span>

@@ -28,7 +28,13 @@ const Content = ({ContentType, Items, CategoryId}) => {
     ContentType === "Deals" && setPage("DealsPage")
     ContentType === "Subcategory" && setPage("ProductsPage")
     ContentType === "Product" && setPage("ProductsPage")
+    ContentType === "Products" && setPage("ProductsPage")
     ContentType === "CustomerService" && setPage('CustomerServicePage');
+  //endregion
+
+
+  //When to render Under Construction page
+  //region
 
   //endregion
 
@@ -51,13 +57,6 @@ const Content = ({ContentType, Items, CategoryId}) => {
     }
   }, [CategoryId]);
 
-  if (ContentType === 'Deals') {
-    return <UnderConstruction/>;
-  }
-
-    if (ContentType === 'CustomerService') {
-    return <UnderConstruction/>;
-  }
 
   if (ContentType === 'Product') {
 
@@ -96,6 +95,7 @@ const Content = ({ContentType, Items, CategoryId}) => {
       {/*      Id={element.productId}*/}
       {/*  />);*/}
       {/*})}*/}
+
 
 
       {dataLoaded && ContentType === 'Subcategory' && data.map(element => {

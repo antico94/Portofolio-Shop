@@ -81,6 +81,7 @@
 .side-menu-glass {
     display: block;
     height: 0;
+    z-index: 999;
 }
 
 .side-menu-glass li {

@@ -1,55 +1,86 @@
 ﻿.main {
     display: flex;
     flex-direction: row;
-}
-
-.first {
-    width: 33%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, .5);
     height: 100%;
-    border: 1px solid black;
-    position: relative;
+    border: 1px solid #fdb8c6;
+
 }
 
-.first h1 {
-    text-align: center;
-    border-bottom: 1px solid black;
-}
 
-.second {
+.left {
+    padding: 25px;
+    width: 50%;
     height: 100%;
-    width: 33%;
-    border: 1px solid black;
-    position: relative;
     display: flex;
-    flex-direction: column;
+    border-right: 1px solid #fdb8c6;
     justify-content: center;
     align-items: center;
 }
 
-.second h1 {
-    text-align: center;
-    border-bottom: 1px solid black;
-    position: relative;
-    width: 100%;
-}
-
-.second img{
-    margin: 25px 0 25px 0;
-}
-
-
-.third {
+.right {
+    width: 50%;
     height: 100%;
-    width: 33%;
-    border: 1px solid black;
+    padding: 25px;
+}
+
+.image {
+    max-height: 700px;
+}
+
+.inputField {
+    font-family: var(--body-font);
+    width: 750px;
+    border: 1px solid #cbcbcb;
+    height: 35px;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px;
+    color: #333333;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+
+#description {
+    height: 200px;
+}
+
+.buttonArea {
     position: relative;
-}
-
-.third h1 {
+    top: -25px;
     text-align: center;
-    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: center;
 }
 
+.selectField {
+    margin-bottom: 15px;
 
+}
 
+.uploadDiv {
+    margin-bottom: 15px;
+}
 
+.button {
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid var(--text-color);
+    width: 200px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: white;
+}
