@@ -5,14 +5,6 @@ import {
 } from '../../containers/utility/utility';
 
 const Dark = ({onClickHandler}) => {
-  // useEffect(() => {
-  //   // document.body.classList.toggle('light-mode');
-  //   const toggleButton = document.querySelector('.dark-light');
-  //   toggleButton.addEventListener('click', () => {
-  //     document.body.classList.toggle('light-mode');
-  //   })
-  // }, []);
-
   return (
       <div className="dark-light" onClick={onClickHandler}>
         <svg viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"

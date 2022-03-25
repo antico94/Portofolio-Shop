@@ -63,8 +63,6 @@
 .app-card {
     display: flex;
     flex-direction: column;
-    width: calc(23% + 3px);
-    /*height: calc(50%);*/
     font-size: 16px;
     background-color: var(--content-bg);
     border-radius: 14px;
@@ -74,7 +72,9 @@
     position: relative;
     left: -20px;
     padding: 20px;
-    margin: 20px 0px 0 20px;
+    margin: 20px 0 0 20px;
+    width: 395px;
+    height: 550px;
 }
 
 
@@ -114,12 +114,19 @@
 }
 
 .app-card__subtext {
+    padding: 5px;
+    background-color: rgba(255,255,255,0.05);
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.6em;
-    margin-top: 20px;
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 20px;
+    /*border-top: 1px solid var(--border-color);*/
+    margin-top: 25px;
+    height: 115px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
 }
 
 .app-card-buttons {
@@ -159,4 +166,20 @@
 .svgGlobal{
     /*fill: var(--text-color);*/
     fill: red;
+}
+
+
+.product-image-container{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.product-image{
+    max-height: 300px;
+        margin: 0;
+    padding: 0;
 }

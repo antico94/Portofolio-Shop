@@ -32,8 +32,7 @@ const Promo = React.memo(({closePromo}) => {
         </svg>
         Today's Promotion
       </h3>
-      <div className="content-text">          Morbi luctus pellentesque tortor sit amet placerat. Duis bibendum
-          mollis venenatis. Donec in erat eu diam feugiat consequat nec eu urna.
+      <div className="content-text"> All students will get 20% off on any laptop purchase during the period 20 March - 20 April. More details in the Today's Deals page.
       </div>
       <button className="content-button">View Offers</button>
     </div>

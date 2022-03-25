@@ -1,12 +1,6 @@
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 import {Content} from '../index';
-import mobileDevices from '../../containers/subcategory/mobile-devices';
-import pcAndComponents from '../../containers/subcategory/pc-and-components';
-import tvAndMonitors from '../../containers/subcategory/tv-and-monitors';
-import gaming from '../../containers/subcategory/gaming';
-import peripherals from '../../containers/subcategory/peripherals';
-import {Home} from '../../pages';
 
 const MyRoutes = () => {
   return (
@@ -14,35 +8,35 @@ const MyRoutes = () => {
 
         <Route path="/categories/mobile-devices"
                element={<Content ContentType="Subcategory"
-                                 Items={mobileDevices}
                                  CategoryId={1}/>}/>
         <Route path="/categories/pc-and-components"
                element={<Content ContentType="Subcategory"
-                                 Items={pcAndComponents}
                                  CategoryId={2}/>}/>}/>
-        <Route path="/categories/foto-and-video"
+        <Route path="/categories/photos-and-videos"
                element={<Content ContentType="Subcategory"
-                                 Items={mobileDevices}
                                  CategoryId={3}/>}/>}/>
         <Route path="/categories/tv-and-monitors"
                element={<Content ContentType="Subcategory"
-                                 Items={tvAndMonitors}
                                  CategoryId={4}/>}/>}/>
         <Route path="/categories/gaming"
                element={<Content ContentType="Subcategory"
-                                 Items={gaming}
-                                 CategoryId={5}/>}/>}/>
+                                 CategoryId={5}
+               />}/>}/>
         <Route path="/categories/peripherals"
                element={<Content ContentType="Subcategory"
                                  CategoryId={6}
-                                 Items={peripherals}/>}/>}/>
-        <Route path="/categories/photos-and-videos/products"
-               element={<Content ContentType="Products"
-                                 Items={peripherals}/>}/>}/>
+               />}/>}/>
+        <Route path="/products-by-subcategoryId/:int"
+               element={<Content ContentType="ProductsBySubcategory"
+               />}/>}/>
+
+        <Route path="/all-products"
+               element={<Content ContentType="AllProducts"
+               />}/>}/>
 
         <Route path="/gift-cards"
                element={<Content ContentType="Gift-Card"
-                                 Items={peripherals}/>}/>}/>
+               />}/>}/>
         <Route path="/deals"
                element={<Content ContentType="Deals"
                />}/>}/>
@@ -59,14 +53,16 @@ const MyRoutes = () => {
                element={<Content ContentType="Construction"
                />}/>}/>
         <Route path="/product/:int"
-               element={<Content ContentType="Product"
+               element={<Content ContentType="ProductPage"
+               />}/>}/>
+        <Route path="/test"
+               element={<Content ContentType="AllProducts"
                />}/>}/>
         <Route path="/admin"
                element={<Content ContentType="Admin"
                />}/>}/>
         <Route path="/"
                element={<Content ContentType="Subcategory"
-                                 Items={mobileDevices}
                                  CategoryId={1}/>}/>
         {/*<Route path="/"*/}
         {/*       element={Home}/>*/}

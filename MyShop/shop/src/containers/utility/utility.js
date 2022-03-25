@@ -26,7 +26,7 @@ export const fetchData = async () => {
     })
 }
 
-export const fetchCustomData = async (url, method, args) => {
+export const fetchCustomData = async (url, method="get", args) => {
     if (method.toLowerCase() === "post") {
         return await fetch(url, {
             method: method, headers: {"Content-Type": "Application/json"},

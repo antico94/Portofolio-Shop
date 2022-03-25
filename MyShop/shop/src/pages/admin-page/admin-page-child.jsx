@@ -1,6 +1,6 @@
 ﻿import React, {useEffect, useState} from 'react';
 import css from './admin.module.css';
-import photo from '../../assets/images/pc-and-components/computer.png';
+import photo from '../../assets/images/placeholder/noImage.png';
 import './admin.css';
 import {fetchCustomData} from '../../containers/utility/utility';
 import Select from 'react-select';
@@ -14,6 +14,9 @@ const AdminPageChild = (props) => {
   //region
   const {addOrEdit} = props;
   const defaultImage = photo;
+  const [defaultBrand, setDefaultBrand] = useState('');
+  const [defaultCategory, setDefaultCategory] = useState('');
+  const [defaultSubcategory, setDefaultSubcategory] = useState('');
   //endregion
 
   //Categories & Subcategories Select
@@ -46,13 +49,14 @@ const AdminPageChild = (props) => {
 
   const onChangeCategory = e => {
     setCategorySelected(e.value);
+    setDefaultCategory(e.label);
   };
 
   const onChangeSubCategory = e => {
-    console.log(e.value);
     setValues({
       ...values, 'subcategory': e.value,
     });
+    setDefaultSubcategory(e.label);
   };
 
   useEffect(() => {
@@ -119,6 +123,10 @@ const AdminPageChild = (props) => {
     setValues(initialFieldValues);
     document.getElementById('image-uploader').value = null;
     setErrors({});
+    setDefaultCategory("");
+    setDefaultBrand("")
+    setDefaultSubcategory("")
+
   };
 
   const handleFormSubmit = e => {
@@ -163,6 +171,7 @@ const AdminPageChild = (props) => {
     setValues({
       ...values, 'brand': e.value,
     });
+    setDefaultBrand(e.label);
   };
 
   //endregion
@@ -251,6 +260,7 @@ const AdminPageChild = (props) => {
       {brandsLoaded && (<div>
         <label>Brand:</label>
         <Select
+            defaultInputValue={defaultBrand}
             styles={defaultStyle}
             className={css.selectField + applyErrorClass('brand')}
             onChange={onChangeBrand}

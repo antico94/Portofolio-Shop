@@ -33,15 +33,7 @@ const FirstHeader = React.memo(() => {
   }, []);
   //endregion
 
-  // Selection on click (Commented)
-  //region
-  // $(function() {
-  //   $('.menu-link').click(function() {
-  //     $('.menu-link').removeClass('is-active');
-  //     $(this).addClass('is-active');
-  //   });
-  // });
-  //endregion
+
 
   //Set Active Page
   //region
@@ -69,22 +61,18 @@ const FirstHeader = React.memo(() => {
   }, [active]);
   //endregion
 
-  const logoClickHandler = () => {
-    console.log('Sex');
-    return <useNavigate to="http://localhost:3000/categories/mobile-devices"/>;
-  };
 
   return (
-      <div className="header">
+      <Link to={"/categories/mobile-devices"} className="header">
         <div className="logo-top-container">
-          <h1 className="logo-top-text" onClick={logoClickHandler}>
+          <h1 className="logo-top-text">
             <span className="logo-top-text-first">PRIME</span>
             <span className="logo-top-text-second">STORE</span>
           </h1>
         </div>
         <div className="header-menu">
           <Link ref={ProductPage} className="menu-link"
-                to="/categories/photos-and-videos/products">Products</Link>
+                to="/all-products">Products</Link>
           <Link ref={DealsPage} to="/deals" className="menu-link notify">Today's
             Deals</Link>
           <Link ref={CustomerServicePage} to="/customer-service"
@@ -117,7 +105,7 @@ const FirstHeader = React.memo(() => {
                src={ProfilePic}
                alt=""/>
         </div>
-      </div>);
+      </Link>);
 });
 
 export default FirstHeader;
