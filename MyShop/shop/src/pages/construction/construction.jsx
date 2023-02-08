@@ -4,8 +4,8 @@ import css from "./construction.module.css"
 const Construction = () => {
   return (
       <div className={css.construction}>
-        <div className={css.warningContent}>
           <h1 className={css.title}>Page Under Construction</h1>
+        <div className={css.warningContent}>
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                width="100.001px" height="70px" viewBox="0 0 100 68">

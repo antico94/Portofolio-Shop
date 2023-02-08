@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 
 * {
     outline: none;
@@ -96,14 +98,14 @@ img {
     padding: 8px;
     border-radius: 50%;
     z-index: 3;
-    left: 1850px;
-    top: 850px;
+    left: 0px;
+    top: 0px;
     cursor: pointer;
 }
 
 .dark-light svg {
-    width: 24px;
-    flex-shrink: 0;
+    width: 32px;
+    height: 24px;
     fill: #ffce45;
     stroke: #ffce45;
     transition: 0.5s;
@@ -399,6 +401,12 @@ body.light-mode .video-bg:before {
 .side-menu svg {
     width: 16px;
     margin-right: 8px;
+}
+
+.side-menu img {
+    width: 16px;
+    margin-right: 8px;
+
 }
 
 .updates {

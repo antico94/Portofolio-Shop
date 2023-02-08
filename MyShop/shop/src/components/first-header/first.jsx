@@ -5,24 +5,22 @@ import {Link, useNavigate} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 
 const FirstHeader = React.memo(() => {
-  //Refs
-  //region
+  //region Refs
   const ProductPage = useRef();
   const DealsPage = useRef();
   const CustomerServicePage = useRef();
   const GiftCardPage = useRef();
   //endregion
 
-  //States
-  //region
+  //region States
   const [active, setActive] = useState(ProductPage);
   const currentPage = useSelector((state) => state.page);
   // setInterval(() => console.log(currentPage), 1000)
 
   //endregion
 
-  //Search Bar
-  //region
+
+  //region Search Bar
   useEffect(() => {
     // Search bar effect
     $('.search-bar input').focus(function() {
@@ -35,8 +33,8 @@ const FirstHeader = React.memo(() => {
 
 
 
-  //Set Active Page
-  //region
+
+  //region Set Active Page
   useEffect(() => {
     currentPage === 'ProductsPage'
         ? setActive(ProductPage)

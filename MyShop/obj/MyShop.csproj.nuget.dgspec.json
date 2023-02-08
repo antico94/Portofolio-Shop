@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Meiu\\Desktop\\MyShop\\MyShop\\MyShop.csproj": {}
+    "D:\\Portofolio-Shop\\MyShop\\MyShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Meiu\\Desktop\\MyShop\\MyShop\\MyShop.csproj": {
+    "D:\\Portofolio-Shop\\MyShop\\MyShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Meiu\\Desktop\\MyShop\\MyShop\\MyShop.csproj",
+        "projectUniqueName": "D:\\Portofolio-Shop\\MyShop\\MyShop.csproj",
         "projectName": "MyShop",
-        "projectPath": "C:\\Users\\Meiu\\Desktop\\MyShop\\MyShop\\MyShop.csproj",
-        "packagesPath": "C:\\Users\\Meiu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Meiu\\Desktop\\MyShop\\MyShop\\obj\\",
+        "projectPath": "D:\\Portofolio-Shop\\MyShop\\MyShop.csproj",
+        "packagesPath": "C:\\Users\\Meiu-PC\\.nuget\\packages\\",
+        "outputPath": "D:\\Portofolio-Shop\\MyShop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Meiu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Meiu-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,7 +83,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -95,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
