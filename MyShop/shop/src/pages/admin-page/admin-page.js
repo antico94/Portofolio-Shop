@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import axios from 'axios';
 import AdminPageChild from './admin-page-child';
+import AdminMenu from "../../components/admin-menu/admin-menu";
 
 export default function AdminPage() {
 
@@ -15,12 +16,13 @@ export default function AdminPage() {
 
   const addOrEdit = (formData, onSuccess) => {
     ProductAPI().create(formData).then(res => {
-      console.log('succes! \n' + res);
+      console.log('Success! \n' + res);
       onSuccess();
     }).catch(err => console.log(err.response.data));
   };
 
   return (
+      // <AdminMenu/>
       <AdminPageChild addOrEdit={addOrEdit}/>
   );
 };

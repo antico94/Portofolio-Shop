@@ -98,8 +98,8 @@ img {
     padding: 8px;
     border-radius: 50%;
     z-index: 3;
-    left: 0px;
-    top: 0px;
+    left: calc(100vw - 75px);
+    top: calc(100vh - 75px);
     cursor: pointer;
 }
 
